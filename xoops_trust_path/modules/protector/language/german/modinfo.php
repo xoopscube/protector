@@ -1,17 +1,18 @@
 <?php
 
 if (defined('FOR_XOOPS_LANG_CHECKER')) {
-    $mydirname = 'protector' ;
+    $mydirname = 'protector';
 }
-$constpref = '_MI_' . strtoupper($mydirname) ;
+$constpref = '_MI_'.strtoupper($mydirname);
 
-if (defined('FOR_XOOPS_LANG_CHECKER') || ! defined($constpref.'_LOADED')) {
+if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref.'_LOADED')) {
 
-
-
-
-
-
+// Appended by Xoops Language Checker -GIJOE- in 2017-02-27 14:47:37
+define($constpref.'_BANIP_IPV6PREFIX', 'IPv6 deny list registration prefix');
+    define($constpref.'_BANIP_IPV6PREFIXDSC', 'Number of prefix bit at IPv6 address registration (128 bit to all bits)');
+    define($constpref.'_HIJACK_TOPBITV6', 'Protected IP bits for the session(IPv6)');
+    define($constpref.'_HIJACK_TOPBITV6DSC', 'Anti Session Hi-Jacking:<br />Default 128(bit). (All bits are protected)<br />When your IP is not stable, set the IP range by number of the bits.');
+    define($constpref.'_DOS_EXPIRE', 'Watch time for high loadings (sec)');
 
 // Appended by Xoops Language Checker -GIJOE- in 2009-11-17 18:12:56
 define($constpref.'_FILTERS', 'filters enabled in this site');
@@ -43,18 +44,18 @@ define($constpref.'_BANIP_TIME0', 'Banned IP suspension time (sec)');
 // Appended by Xoops Language Checker -GIJOE- in 2007-03-29 03:36:15
 define($constpref.'_ADMENU_MYBLOCKSADMIN', 'Permissions');
 
-    define($constpref.'_LOADED', 1) ;
+    define($constpref.'_LOADED', 1);
 
 // The name of this module
-define($constpref."_NAME", "Protector");
+define($constpref.'_NAME', 'Protector');
 
 // A brief description of this module
-define($constpref."_DESC", "Dieses Modul schützt vor Angriffen aufür Ihre Xoops-Seite (DoS , SQL Injektion und Variablen Infektionen)");
+define($constpref.'_DESC', 'Dieses Modul schützt vor Angriffen aufür Ihre Xoops-Seite (DoS , SQL Injektion und Variablen Infektionen)');
 
 // Menu
-define($constpref."_ADMININDEX", "Protect Center");
-    define($constpref."_ADVISORY", "Sicherheitsberatung");
-    define($constpref."_PREFIXMANAGER", "Prefix Manager");
+define($constpref.'_ADMININDEX', 'Protect Center');
+    define($constpref.'_ADVISORY', 'Sicherheitsberatung');
+    define($constpref.'_PREFIXMANAGER', 'Prefix Manager');
 
 // Configs
 define($constpref.'_GLOBAL_DISBL', 'Vorübergehend deaktiviert');

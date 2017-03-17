@@ -1,27 +1,27 @@
 <?php
 
 if (defined('FOR_XOOPS_LANG_CHECKER')) {
-    $mydirname = 'protector' ;
+    $mydirname = 'protector';
 }
-$constpref = '_MI_' . strtoupper($mydirname) ;
+$constpref = '_MI_'.strtoupper($mydirname);
 
-if (defined('FOR_XOOPS_LANG_CHECKER') || ! defined($constpref.'_LOADED')) {
-    define($constpref.'_LOADED', 1) ;
+if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref.'_LOADED')) {
+    define($constpref.'_LOADED', 1);
 
-// The name of this module
-define($constpref."_NAME", "Protector");
+    // The name of this module
+    define($constpref.'_NAME', 'Protector');
 
-// A brief description of this module
-define($constpref."_DESC", "This module protects your xoops site from various attacks like DoS , SQL Injection , and Variables contaminations.");
+    // A brief description of this module
+    define($constpref.'_DESC', 'This module protects your xoops site from various attacks like DoS , SQL Injection , and Variables contaminations.');
 
-// Menu
-define($constpref."_ADMININDEX", "Protect Center");
-    define($constpref."_ADVISORY", "Security Advisory");
-    define($constpref."_PREFIXMANAGER", "Prefix Manager");
-    define($constpref.'_ADMENU_MYBLOCKSADMIN', 'Permissions') ;
+    // Menu
+    define($constpref.'_ADMININDEX', 'Protect Center');
+    define($constpref.'_ADVISORY', 'Security Advisory');
+    define($constpref.'_PREFIXMANAGER', 'Prefix Manager');
+    define($constpref.'_ADMENU_MYBLOCKSADMIN', 'Permissions');
 
-// Configs
-define($constpref.'_GLOBAL_DISBL', 'Temporary disabled');
+    // Configs
+    define($constpref.'_GLOBAL_DISBL', 'Temporary disabled');
     define($constpref.'_GLOBAL_DISBLDSC', 'All protections are disabled in temporary.<br />Don\'t forget turn this off after shooting the trouble');
 
     define($constpref.'_DEFAULT_LANG', 'Default language');
@@ -35,13 +35,18 @@ define($constpref.'_GLOBAL_DISBL', 'Temporary disabled');
 
     define($constpref.'_BANIP_TIME0', 'Banned IP suspension time (sec)');
 
+    define($constpref.'_BANIP_IPV6PREFIX', 'IPv6 deny list registration prefix');
+    define($constpref.'_BANIP_IPV6PREFIXDSC', 'Number of prefix bit at IPv6 address registration (128 bit to all bits)');
+
     define($constpref.'_LOGLEVEL0', 'none');
     define($constpref.'_LOGLEVEL15', 'Quiet');
     define($constpref.'_LOGLEVEL63', 'quiet');
     define($constpref.'_LOGLEVEL255', 'full');
 
-    define($constpref.'_HIJACK_TOPBIT', 'Protected IP bits for the session');
+    define($constpref.'_HIJACK_TOPBIT', 'Protected IP bits for the session(IPv4)');
     define($constpref.'_HIJACK_TOPBITDSC', 'Anti Session Hi-Jacking:<br />Default 32(bit). (All bits are protected)<br />When your IP is not stable, set the IP range by number of the bits.<br />(eg) If your IP can move in the range of 192.168.0.0-192.168.0.255, set 24(bit) here');
+    define($constpref.'_HIJACK_TOPBITV6', 'Protected IP bits for the session(IPv6)');
+    define($constpref.'_HIJACK_TOPBITV6DSC', 'Anti Session Hi-Jacking:<br />Default 128(bit). (All bits are protected)<br />When your IP is not stable, set the IP range by number of the bits.');
     define($constpref.'_HIJACK_DENYGP', 'Groups disallowed IP moving in a session');
     define($constpref.'_HIJACK_DENYGPDSC', 'Anti Session Hi-Jacking:<br />Select groups which is disallowed to move their IP in a session.<br />(I recommend to turn Administrator on.)');
     define($constpref.'_SAN_NULLBYTE', 'Sanitizing null-bytes');

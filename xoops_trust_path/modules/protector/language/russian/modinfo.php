@@ -1,17 +1,17 @@
 <?php
 
 if (defined('FOR_XOOPS_LANG_CHECKER')) {
-    $mydirname = 'protector' ;
+    $mydirname = 'protector';
 }
-$constpref = '_MI_' . strtoupper($mydirname) ;
+$constpref = '_MI_'.strtoupper($mydirname);
 
-if (defined('FOR_XOOPS_LANG_CHECKER') || ! defined($constpref.'_LOADED')) {
+if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref.'_LOADED')) {
 
-
-
-
-
-
+// Appended by Xoops Language Checker -GIJOE- in 2017-02-27 14:47:37
+define($constpref.'_BANIP_IPV6PREFIX', 'IPv6 deny list registration prefix');
+    define($constpref.'_BANIP_IPV6PREFIXDSC', 'Number of prefix bit at IPv6 address registration (128 bit to all bits)');
+    define($constpref.'_HIJACK_TOPBITV6', 'Protected IP bits for the session(IPv6)');
+    define($constpref.'_HIJACK_TOPBITV6DSC', 'Anti Session Hi-Jacking:<br />Default 128(bit). (All bits are protected)<br />When your IP is not stable, set the IP range by number of the bits.');
 
 // Appended by Xoops Language Checker -GIJOE- in 2009-11-17 18:12:57
 define($constpref.'_FILTERS', 'filters enabled in this site');
@@ -43,18 +43,18 @@ define($constpref.'_BANIP_TIME0', 'Banned IP suspension time (sec)');
 // Appended by Xoops Language Checker -GIJOE- in 2007-04-11 05:08:26
 define($constpref.'_ADMENU_MYBLOCKSADMIN', 'Permissions');
 
-    define($constpref.'_LOADED', 1) ;
+    define($constpref.'_LOADED', 1);
 
 // The name of this module
-define($constpref."_NAME", "Стор");
+define($constpref.'_NAME', 'Стор');
 
 // A brief description of this module
-define($constpref."_DESC", "Этот модуль защищает ваш сайт на базе XOOPS от различного вида атак, таких как: DoS, SQL Injection и порчи переменных.");
+define($constpref.'_DESC', 'Этот модуль защищает ваш сайт на базе XOOPS от различного вида атак, таких как: DoS, SQL Injection и порчи переменных.');
 
 // Menu
-define($constpref."_ADMININDEX", "Главная");
-    define($constpref."_ADVISORY", "Подсказки");
-    define($constpref."_PREFIXMANAGER", "Управление префиксом БД");
+define($constpref.'_ADMININDEX', 'Главная');
+    define($constpref.'_ADVISORY', 'Подсказки');
+    define($constpref.'_PREFIXMANAGER', 'Управление префиксом БД');
 
 // Configs
 define($constpref.'_GLOBAL_DISBL', 'Временно выключен');

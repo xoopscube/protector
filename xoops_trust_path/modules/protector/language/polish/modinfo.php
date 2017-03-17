@@ -1,16 +1,17 @@
 <?php
 
 if (defined('FOR_XOOPS_LANG_CHECKER')) {
-    $mydirname = 'protector' ;
+    $mydirname = 'protector';
 }
-$constpref = '_MI_' . strtoupper($mydirname) ;
+$constpref = '_MI_'.strtoupper($mydirname);
 
-if (defined('FOR_XOOPS_LANG_CHECKER') || ! defined($constpref.'_LOADED')) {
+if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref.'_LOADED')) {
 
-
-
-
-
+// Appended by Xoops Language Checker -GIJOE- in 2017-02-27 14:47:37
+define($constpref.'_BANIP_IPV6PREFIX', 'IPv6 deny list registration prefix');
+    define($constpref.'_BANIP_IPV6PREFIXDSC', 'Number of prefix bit at IPv6 address registration (128 bit to all bits)');
+    define($constpref.'_HIJACK_TOPBITV6', 'Protected IP bits for the session(IPv6)');
+    define($constpref.'_HIJACK_TOPBITV6DSC', 'Anti Session Hi-Jacking:<br />Default 128(bit). (All bits are protected)<br />When your IP is not stable, set the IP range by number of the bits.');
 
 // Appended by Xoops Language Checker -GIJOE- in 2009-11-17 18:12:56
 define($constpref.'_FILTERS', 'filters enabled in this site');
@@ -37,21 +38,21 @@ define($constpref.'_DEFAULT_LANG', 'Default language');
 // Appended by Xoops Language Checker -GIJOE- in 2007-11-13 03:43:32
 define($constpref.'_BANIP_TIME0', 'Banned IP suspension time (sec)');
 
-    define($constpref.'_LOADED', 1) ;
+    define($constpref.'_LOADED', 1);
 
 // The name of this module
-define($constpref."_NAME", "Protector");
+define($constpref.'_NAME', 'Protector');
 
 // A brief description of this module
-define($constpref."_DESC", "Modu³ zabezpieczaj±cy Xoopsa, przed ró¿nymi
+define($constpref.'_DESC', 'Modu³ zabezpieczaj±cy Xoopsa, przed ró¿nymi
 rodzajami ataków z sieci, takich jak: DoS , SQL Injection i ska¿eniem
-zmiennych.");
+zmiennych.');
 
 // Menu
-define($constpref."_ADMININDEX", "Centrum zabezpieczeñ");
-    define($constpref."_ADVISORY", "Porady nt. bezpieczeñstwa");
-    define($constpref."_PREFIXMANAGER", "Menad¿er prefiksu");
-    define($constpref.'_ADMENU_MYBLOCKSADMIN', 'Uprawnienia') ;
+define($constpref.'_ADMININDEX', 'Centrum zabezpieczeñ');
+    define($constpref.'_ADVISORY', 'Porady nt. bezpieczeñstwa');
+    define($constpref.'_PREFIXMANAGER', 'Menad¿er prefiksu');
+    define($constpref.'_ADMENU_MYBLOCKSADMIN', 'Uprawnienia');
 
 // Configs
 define($constpref.'_GLOBAL_DISBL', 'Tymczasowo wy³±czony');

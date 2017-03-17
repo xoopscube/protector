@@ -1,27 +1,27 @@
 <?php
 
 if (defined('FOR_XOOPS_LANG_CHECKER')) {
-    $mydirname = 'protector' ;
+    $mydirname = 'protector';
 }
-$constpref = '_MI_' . strtoupper($mydirname) ;
+$constpref = '_MI_'.strtoupper($mydirname);
 
-if (defined('FOR_XOOPS_LANG_CHECKER') || ! defined($constpref.'_LOADED')) {
-    define($constpref.'_LOADED', 1) ;
+if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref.'_LOADED')) {
+    define($constpref.'_LOADED', 1);
 
-// The name of this module
-define($constpref."_NAME", "Protector");
+    // The name of this module
+    define($constpref.'_NAME', 'Protector');
 
-// A brief description of this module
-define($constpref."_DESC", "悪意ある攻撃からXOOPSを守るためのモジュール<br />DoS,SQL Injection,変数汚染といった攻撃を主に防ぎます。");
+    // A brief description of this module
+    define($constpref.'_DESC', '悪意ある攻撃からXOOPSを守るためのモジュール<br />DoS,SQL Injection,変数汚染といった攻撃を主に防ぎます。');
 
-// Menu
-define($constpref."_ADMININDEX", "Protect Center");
-    define($constpref."_ADVISORY", "セキュリティガイド");
-    define($constpref."_PREFIXMANAGER", "PREFIX マネージャ");
-    define($constpref.'_ADMENU_MYBLOCKSADMIN', 'アクセス権限') ;
+    // Menu
+    define($constpref.'_ADMININDEX', 'Protect Center');
+    define($constpref.'_ADVISORY', 'セキュリティガイド');
+    define($constpref.'_PREFIXMANAGER', 'PREFIX マネージャ');
+    define($constpref.'_ADMENU_MYBLOCKSADMIN', 'アクセス権限');
 
-// Configs
-define($constpref.'_GLOBAL_DISBL', '動作の一時的中断');
+    // Configs
+    define($constpref.'_GLOBAL_DISBL', '動作の一時的中断');
     define($constpref.'_GLOBAL_DISBLDSC', 'あらゆる防御動作を一時的に無効化します。<br />問題が解決されたら無効化を解除することをお忘れなく');
 
     define($constpref.'_DEFAULT_LANG', 'サイトのデフォルト言語');
@@ -35,13 +35,18 @@ define($constpref.'_GLOBAL_DISBL', '動作の一時的中断');
 
     define($constpref.'_BANIP_TIME0', '期限付IP拒否の期限(秒)');
 
+    define($constpref.'_BANIP_IPV6PREFIX', 'IPv6拒否リスト登録プレフィクス');
+    define($constpref.'_BANIP_IPV6PREFIXDSC', 'IPv6 アドレス登録時のプレフィクスビット数(128 で全ビット)');
+
     define($constpref.'_LOGLEVEL0', 'ログ出力一切なし');
     define($constpref.'_LOGLEVEL15', '危険性の高いものだけログを取る');
     define($constpref.'_LOGLEVEL63', '危険性の低いものはログしない');
     define($constpref.'_LOGLEVEL255', '全種類のロギングを有効とする');
 
-    define($constpref.'_HIJACK_TOPBIT', 'セッションを継続する保護ビット');
-    define($constpref.'_HIJACK_TOPBITDSC', 'セッションハイジャック対策：<br />通常は32(bit)で、全ビットを保護します。<br />Proxyの利用などで、アクセス毎にIPアドレスが変わる場合には、変動しない最長のビット数を指定します。<br />例えば、192.168.0.0～192.168.0.255で変動する可能性がある場合、ここには24(bit)と指定します。');
+    define($constpref.'_HIJACK_TOPBIT', 'セッションを継続する保護ビット(IPv4)');
+    define($constpref.'_HIJACK_TOPBITDSC', 'セッションハイジャック対策：<br />通常は32(bit)で、全ビットを保護します。<br />Proxyの利用などで、アクセス毎にIPアドレスが変わる場合には、変動しない最長のビット数を指定します。<br />例えば、192.168.0.0〜192.168.0.255で変動する可能性がある場合、ここには24(bit)と指定します。');
+    define($constpref.'_HIJACK_TOPBITV6', 'セッションを継続する保護ビット(IPv6)');
+    define($constpref.'_HIJACK_TOPBITV6DSC', 'セッションハイジャック対策：<br />通常は128(bit)で、全ビットを保護します。<br />Proxyの利用などで、アクセス毎にIPアドレスが変わる場合には、変動しない最長のビット数を指定します。');
     define($constpref.'_HIJACK_DENYGP', 'IP変動を禁止するグループ');
     define($constpref.'_HIJACK_DENYGPDSC', 'セッションハイジャック対策：<br />セッション中に異なるIPアドレス範囲（上にてビット数指定）からのアクセスを禁止するグループを指定します<br />（管理者についてONにすることをお勧めします）');
     define($constpref.'_SAN_NULLBYTE', 'ヌル文字列をスペースに変更する');

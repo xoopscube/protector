@@ -13,9 +13,9 @@ define("_AM_TH_AGENT", "AGENT");
 define("_AM_TH_TYPE", "種別");
 define("_AM_TH_DESCRIPTION", "詳細");
 
-define("_AM_TH_BADIPS", '拒否IPリスト<br /><br /><span style="font-weight:normal;">１行１IPアドレスで記述してください（前方一致）。空欄なら全許可。</span>') ;
+define("_AM_TH_BADIPS", '拒否IPリスト<br /><br /><span style="font-weight:normal;">１行１IPアドレスで記述してください（前方一致）。空欄なら全許可。<br />IPv6 アドレスの省略表記 "::" 及び "0" の省略は使用できません。</span>') ;
 
-define("_AM_TH_GROUP1IPS", '管理者グループ(1)の許可IP<br /><br /><span style="font-weight:normal;">１行１IPアドレスで記述してください（前方一致）。<br />192.168. とすれば、192.168.*からのみ管理者になれます。空欄なら全許可。</span>') ;
+define("_AM_TH_GROUP1IPS", '管理者グループ(1)の許可IP<br /><br /><span style="font-weight:normal;">１行１IPアドレスで記述してください（前方一致）。<br />IPv6 アドレスの省略表記 "::" 及び "0" の省略は使用できません。<br />192.168. とすれば、192.168.*からのみ管理者になれます。空欄なら全許可。</span>') ;
 
 define("_AM_LABEL_COMPACTLOG", "ログをコンパクト化する") ;
 define("_AM_BUTTON_COMPACTLOG", "コンパクト化実行") ;

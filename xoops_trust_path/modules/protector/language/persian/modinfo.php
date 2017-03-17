@@ -1,14 +1,17 @@
 <?php
 
 if (defined('FOR_XOOPS_LANG_CHECKER')) {
-    $mydirname = 'protector' ;
+    $mydirname = 'protector';
 }
-$constpref = '_MI_' . strtoupper($mydirname) ;
+$constpref = '_MI_'.strtoupper($mydirname);
 
-if (defined('FOR_XOOPS_LANG_CHECKER') || ! defined($constpref.'_LOADED')) {
+if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref.'_LOADED')) {
 
-
-
+// Appended by Xoops Language Checker -GIJOE- in 2017-02-27 14:47:37
+define($constpref.'_BANIP_IPV6PREFIX', 'IPv6 deny list registration prefix');
+    define($constpref.'_BANIP_IPV6PREFIXDSC', 'Number of prefix bit at IPv6 address registration (128 bit to all bits)');
+    define($constpref.'_HIJACK_TOPBITV6', 'Protected IP bits for the session(IPv6)');
+    define($constpref.'_HIJACK_TOPBITV6DSC', 'Anti Session Hi-Jacking:<br />Default 128(bit). (All bits are protected)<br />When your IP is not stable, set the IP range by number of the bits.');
 
 // Appended by Xoops Language Checker -GIJOE- in 2009-11-17 18:12:56
 define($constpref.'_FILTERS', 'filters enabled in this site');
@@ -26,18 +29,18 @@ define($constpref.'_DBTRAPWOSRV', 'هیچ وقت _SERVER برای anti-SQL-Injec
 define($constpref.'_DBLAYERTRAP', 'فعال سازی سیستم تله گذاری لایه های پایگاه داده ها در برابر تزریق به sql یا ( DB Layer trapping anti-SQL-Injection ) ');
     define($constpref.'_DBLAYERTRAPDSC', 'همچنین حملات تزریق به SQL توسط این گزینه دفع میشوند. این ویژگی لازم دارد که توسط databasefactory پشتیبانی شود. شما میتوانید این گزینه را در صفحه مشاوره امنیتی برسی کنید.');
 
-    define($constpref.'_LOADED', 1) ;
+    define($constpref.'_LOADED', 1);
 
 // The name of this module
-define($constpref."_NAME", "ماژول امنيتي پروتکتور");
+define($constpref.'_NAME', 'ماژول امنيتي پروتکتور');
 
 // A brief description of this module
-define($constpref."_DESC", "اين ماژول سايت زوپس شما را در برابر حملات ويروسي و لینک های داس نفوذ به پایگاه داده ها و ... محافظت ميکند.");
+define($constpref.'_DESC', 'اين ماژول سايت زوپس شما را در برابر حملات ويروسي و لینک های داس نفوذ به پایگاه داده ها و ... محافظت ميکند.');
 
 // Menu
-define($constpref."_ADMININDEX", "مرکز حفاظت");
-    define($constpref."_ADVISORY", "مشاوره ی امنیتی");
-    define($constpref."_PREFIXMANAGER", "مدیریت پیشوند نام جدول های پایگاه داده ها");
+define($constpref.'_ADMININDEX', 'مرکز حفاظت');
+    define($constpref.'_ADVISORY', 'مشاوره ی امنیتی');
+    define($constpref.'_PREFIXMANAGER', 'مدیریت پیشوند نام جدول های پایگاه داده ها');
     define($constpref.'_ADMENU_MYBLOCKSADMIN', 'دسترسی ها');
 
 // Configs
