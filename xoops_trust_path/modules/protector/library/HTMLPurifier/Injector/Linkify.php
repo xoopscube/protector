@@ -57,4 +57,3 @@ class HTMLPurifier_Injector_Linkify extends HTMLPurifier_Injector
 }
 
 // vim: et sw=4 sts=4
-

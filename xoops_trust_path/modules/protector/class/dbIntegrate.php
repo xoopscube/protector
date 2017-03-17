@@ -26,7 +26,7 @@ class protectorDbIntegrate
                 } else {
                     return false;
                 }
-            default :
+            default:
                 return mysql_field_flags($result, $field_offset);
         }
     }
@@ -59,7 +59,7 @@ class protectorDbIntegrate
                     $res->type = $type_hash[$res->type];
                 }
                 return $res;
-            default :
+            default:
                 return mysql_fetch_field($result, $field_offset);
         }
     }

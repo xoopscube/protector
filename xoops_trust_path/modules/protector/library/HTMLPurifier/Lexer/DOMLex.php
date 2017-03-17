@@ -278,4 +278,3 @@ class HTMLPurifier_Lexer_DOMLex extends HTMLPurifier_Lexer
 }
 
 // vim: et sw=4 sts=4
-

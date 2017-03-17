@@ -102,4 +102,3 @@ class HTMLPurifier_AttrDef_CSS extends HTMLPurifier_AttrDef
 }
 
 // vim: et sw=4 sts=4
-

@@ -7,7 +7,6 @@
  */
 class HTMLPurifier_AttrTransform_NameSync extends HTMLPurifier_AttrTransform
 {
-
     public function __construct()
     {
         $this->idDef = new HTMLPurifier_AttrDef_HTML_ID();
@@ -39,4 +38,3 @@ class HTMLPurifier_AttrTransform_NameSync extends HTMLPurifier_AttrTransform
 }
 
 // vim: et sw=4 sts=4
-

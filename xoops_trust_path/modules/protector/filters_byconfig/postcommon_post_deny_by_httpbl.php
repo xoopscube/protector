@@ -5,7 +5,6 @@ define('PROTECTOR_HTTPBL_KEY', '............') ;
 
 class protector_postcommon_post_deny_by_httpbl extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         // http:bl servers (don't enable too many servers)

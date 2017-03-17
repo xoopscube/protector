@@ -2,7 +2,6 @@
 
 class protector_prepurge_exit_message extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         // header( 'Location: http://google.com/' ) ; // redirect somewhere

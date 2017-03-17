@@ -6,7 +6,6 @@
  */
 class HTMLPurifier_VarParser
 {
-
     const STRING = 1;
     const ISTRING = 2;
     const TEXT = 3;
@@ -196,4 +195,3 @@ class HTMLPurifier_VarParser
 }
 
 // vim: et sw=4 sts=4
-

@@ -2,7 +2,6 @@
 
 class protector_precommon_badip_errorlog extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         echo _MD_PROTECTOR_YOUAREBADIP ;

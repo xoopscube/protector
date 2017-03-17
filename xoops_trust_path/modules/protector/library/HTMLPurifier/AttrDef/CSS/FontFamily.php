@@ -5,7 +5,6 @@
  */
 class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
 {
-
     protected $mask = null;
 
     public function __construct()
@@ -216,4 +215,3 @@ class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
 }
 
 // vim: et sw=4 sts=4
-

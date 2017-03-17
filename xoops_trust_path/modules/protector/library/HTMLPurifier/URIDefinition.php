@@ -2,7 +2,6 @@
 
 class HTMLPurifier_URIDefinition extends HTMLPurifier_Definition
 {
-
     public $type = 'URI';
     protected $filters = array();
     protected $postFilters = array();
@@ -119,4 +118,3 @@ class HTMLPurifier_URIDefinition extends HTMLPurifier_Definition
 }
 
 // vim: et sw=4 sts=4
-

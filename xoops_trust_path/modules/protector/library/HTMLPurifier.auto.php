@@ -9,4 +9,3 @@ require_once 'HTMLPurifier/Bootstrap.php';
 require_once 'HTMLPurifier.autoload.php';
 
 // vim: et sw=4 sts=4
-

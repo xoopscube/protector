@@ -173,4 +173,3 @@ class HTMLPurifier_AttrValidator
 }
 
 // vim: et sw=4 sts=4
-

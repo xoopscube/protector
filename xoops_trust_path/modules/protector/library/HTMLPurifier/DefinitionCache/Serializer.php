@@ -283,4 +283,3 @@ class HTMLPurifier_DefinitionCache_Serializer extends HTMLPurifier_DefinitionCac
 }
 
 // vim: et sw=4 sts=4
-

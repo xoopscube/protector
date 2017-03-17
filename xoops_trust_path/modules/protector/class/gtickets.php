@@ -5,7 +5,6 @@
 if (! class_exists('XoopsGTicket')) {
     class XoopsGTicket
     {
-
         public $_errors = array() ;
         public $_latest_token = '' ;
         public $messages = array() ;

@@ -53,4 +53,3 @@ class HTMLPurifier_Node_Text extends HTMLPurifier_Node
 }
 
 // vim: et sw=4 sts=4
-

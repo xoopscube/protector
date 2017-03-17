@@ -1,17 +1,16 @@
 <?php
 class XoopsDatabaseFactory
 {
-
     public function XoopsDatabaseFactory()
     {
     }
 
     /**
      * Get a reference to the only instance of database class and connects to DB
-     * 
-     * if the class has not been instantiated yet, this will also take 
+     *
+     * if the class has not been instantiated yet, this will also take
      * care of that
-     * 
+     *
      * @static
      * @staticvar   object  The only instance of database class
      * @return      object  Reference to the only instance of database class
@@ -26,10 +25,10 @@ class XoopsDatabaseFactory
             if (defined('XOOPS_DB_ALTERNATIVE') && class_exists(XOOPS_DB_ALTERNATIVE)) {
                 $class = XOOPS_DB_ALTERNATIVE ;
             } else { /* end DB Layer Trapping patch */if (!defined('XOOPS_DB_PROXY')) {
-    $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseSafe';
-} else {
-    $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseProxy';
-}
+                $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseSafe';
+            } else {
+                $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseProxy';
+            }
             }
             $instance = new $class();
             $instance->setLogger(XoopsLogger::instance());
@@ -44,7 +43,7 @@ class XoopsDatabaseFactory
     /**
      * Gets a reference to the only instance of database class. Currently
      * only being used within the installer.
-     * 
+     *
      * @static
      * @staticvar   object  The only instance of database class
      * @return      object  Reference to the only instance of database class

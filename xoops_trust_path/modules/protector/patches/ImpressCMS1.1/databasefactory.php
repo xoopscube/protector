@@ -54,10 +54,10 @@ class XoopsDatabaseFactory
             if (defined('XOOPS_DB_ALTERNATIVE') && class_exists(XOOPS_DB_ALTERNATIVE)) {
                 $class = XOOPS_DB_ALTERNATIVE ;
             } else { /* end DB Layer Trapping patch */if (!defined('XOOPS_DB_PROXY')) {
-    $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseSafe';
-} else {
-    $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseProxy';
-}
+                $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseSafe';
+            } else {
+                $class = 'Xoops'.ucfirst(XOOPS_DB_TYPE).'DatabaseProxy';
+            }
             }
             $instance = new $class();
             $instance->setLogger(XoopsLogger::instance());

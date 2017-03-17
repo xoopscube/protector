@@ -2,7 +2,6 @@
 
 class protector_precommon_bwlimit_message extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         header('HTTP/1.0 503 Service unavailable') ;

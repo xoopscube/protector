@@ -5,7 +5,6 @@
 
 class protector_postcommon_post_need_multibyte extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         global $xoopsUser ;

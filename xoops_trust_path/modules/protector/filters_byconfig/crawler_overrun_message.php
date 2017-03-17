@@ -2,7 +2,6 @@
 
 class protector_crawler_overrun_message extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         // header( 'Location: http://google.com/' ) ; // redirect somewhere

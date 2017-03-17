@@ -223,4 +223,3 @@ class HTMLPurifier_ChildDef_Table extends HTMLPurifier_ChildDef
 }
 
 // vim: et sw=4 sts=4
-

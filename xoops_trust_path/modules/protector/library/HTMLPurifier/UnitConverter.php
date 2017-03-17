@@ -6,7 +6,6 @@
  */
 class HTMLPurifier_UnitConverter
 {
-
     const ENGLISH = 1;
     const METRIC = 2;
     const DIGITAL = 3;
@@ -304,4 +303,3 @@ class HTMLPurifier_UnitConverter
 }
 
 // vim: et sw=4 sts=4
-

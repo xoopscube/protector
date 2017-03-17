@@ -455,4 +455,3 @@ class HTMLPurifier_HTMLModuleManager
 }
 
 // vim: et sw=4 sts=4
-

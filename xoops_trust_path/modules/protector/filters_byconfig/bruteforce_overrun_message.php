@@ -2,7 +2,6 @@
 
 class protector_bruteforce_overrun_message extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         // header( 'Location: http://google.com/' ) ; // redirect somewhere

@@ -67,4 +67,3 @@ abstract class HTMLPurifier_Token_Tag extends HTMLPurifier_Token
 }
 
 // vim: et sw=4 sts=4
-

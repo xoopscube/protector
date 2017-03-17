@@ -204,4 +204,3 @@ class HTMLPurifier_Strategy_RemoveForeignElements extends HTMLPurifier_Strategy
 }
 
 // vim: et sw=4 sts=4
-

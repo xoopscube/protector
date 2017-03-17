@@ -2,7 +2,6 @@
 
 class protector_postcommon_post_deny_by_rbl extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         // RBL servers (don't enable too many servers)

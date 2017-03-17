@@ -2,7 +2,6 @@
 
 class protector_postcommon_register_insert_js_check extends ProtectorFilterAbstract
 {
-
     public function execute()
     {
         ob_start(array( $this, 'ob_filter' )) ;

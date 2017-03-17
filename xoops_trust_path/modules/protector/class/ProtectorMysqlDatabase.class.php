@@ -12,7 +12,6 @@ eval('class ProtectorMySQLDatabase_base extends Xoops'.ucfirst(XOOPS_DB_TYPE).'D
 
 class ProtectorMySQLDatabase extends ProtectorMySQLDatabase_base
 {
-
     public $doubtful_requests = array() ;
     public $doubtful_needles = array(
     // 'order by' ,

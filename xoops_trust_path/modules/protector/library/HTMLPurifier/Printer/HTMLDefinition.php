@@ -318,4 +318,3 @@ class HTMLPurifier_Printer_HTMLDefinition extends HTMLPurifier_Printer
 }
 
 // vim: et sw=4 sts=4
-
