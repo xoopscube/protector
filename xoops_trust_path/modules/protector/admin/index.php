@@ -128,7 +128,7 @@ uksort($bad_ips, 'protector_ip_cmp');
 $bad_ips4disp = '';
 foreach ($bad_ips as $bad_ip => $jailed_time) {
     $line = $jailed_time ? $bad_ip.'-'.$jailed_time : $bad_ip;
-    $line = str_replace(':2147483647', '', $line); // remove :0x7fffffff
+    $line = str_replace('-2147483647', '', $line); // remove :0x7fffffff
     $bad_ips4disp .= htmlspecialchars($line, ENT_QUOTES)."\n";
 }
 
