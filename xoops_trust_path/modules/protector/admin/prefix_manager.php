@@ -121,7 +121,7 @@ if (! empty($_POST['copy']) && ! empty($_POST['old_prefix'])) {
                     $values[] = 'NULL';
                 // a number
                 // timestamp is numeric on some MySQL 4.1
-                } elseif (is_numeric($row[$j]) && $fields_meta->type != 'timestamp') {
+                } elseif (preg_match('/^[0-9.]+$/', $row[$j]) && $fields_meta->type != 'timestamp') {
                     $values[] = $row[$j];
                 // a binary field
                 // Note: with mysqli, under MySQL 4.1.3, we get the flag
