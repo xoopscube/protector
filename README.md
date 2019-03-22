@@ -1,8 +1,11 @@
-[mlimg]
-[xlang:en]
+## 🚧 Protector module was merged into XCL branch module/protector !
+https://github.com/xoopscube/xcl/tree/module/protector
+
+## ⚠️ This repository is planned to be archived !
+
 = SUMMARY =
 
-Protector is a module to defend your CMS origined from XOOPS2 from various and malicious attacks.
+🛡 Protector is a module to secure a CMS built with XOOPS2 from various and malicious attacks.
 
 This module can protect a various kind of attacks like:
 
@@ -26,7 +29,7 @@ Protector defends you CMS from these attacks, and it records into its log.
 Of course, all vulnerablities can't be prevented.
 Be not overconfident, please.
 
-However, I [color=ff0000][b]strongly[/b][/color] recommend installing this module to all XOOPS/ImpressCMS/XCL sites with any versions.
+However, I **strongly** recommend installing this module to all XOOPS/ImpressCMS/XCL sites with any versions.
 
 
 
@@ -40,13 +43,15 @@ Copy xoops_trust_path/modules/protector in the archive into your XOOPS_TRUST_PAT
 Turn permission of XOOPS_TRUST_PATH/modules/protector/configs writable
 
 After Protector is installed, edit your mainfile.php like this:
-[code]
-	[color=ff0000]include XOOPS_TRUST_PATH.'/modules/protector/include/precheck.inc.php' ;[/color]
-	if (!isset($xoopsOption['nocommon']) [color=0000ff]&& XOOPS_ROOT_PATH != ''[/color] ) {
+
+```php
+include XOOPS_TRUST_PATH.'/modules/protector/include/precheck.inc.php' ;
+	if (!isset($xoopsOption['nocommon']) **&& XOOPS_ROOT_PATH != '' ) {
 		include XOOPS_ROOT_PATH."/include/common.php";
 	}
-	[color=ff0000]include XOOPS_TRUST_PATH.'/modules/protector/include/postcheck.inc.php' ;[/color]
-[/code]
+	include XOOPS_TRUST_PATH.'/modules/protector/include/postcheck.inc.php' ;
+```
+	
 Just add two red-colored lines.
 If the blue-colored part is different from your mainfile.php, don't mind it.
 
@@ -69,7 +74,8 @@ The setting and controller of "rescue password" has been eliminated.
 Almost the same as installing into XOOPS 2.0.x.
 There is just a different with the patching point in mainfile.php.
 Refer this.
-[code]
+
+```php
     if (!defined('_LEGACY_PREVENT_LOAD_CORE_') && XOOPS_ROOT_PATH != '') {
         include XOOPS_TRUST_PATH.'/modules/protector/include/precheck.inc.php' ;
         @include_once XOOPS_ROOT_PATH.'/include/cubecore_init.php';
@@ -78,7 +84,7 @@ Refer this.
         }
         include XOOPS_TRUST_PATH.'/modules/protector/include/postcheck.inc.php' ;
     }
-[/code]
+```
 
 
 = How to install it into ImpressCMS =
