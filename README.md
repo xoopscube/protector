@@ -4,7 +4,7 @@
 
 ## ///// — Protector :: Security Module
 
-![alt text](https://repository-images.githubusercontent.com/8041553/12e69a85-2fb7-4886-9376-c1828d17afd6)
+![alt text](https://repository-images.githubusercontent.com/8041553/494f183f-cd64-41b1-8ad7-4d9be8fdbfd5)
 
 
 MODULE | Protector
