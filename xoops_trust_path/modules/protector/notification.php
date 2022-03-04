@@ -1,26 +1,30 @@
 <?php
 
-eval('
-function '.$mydirname.'_notify_iteminfo( $category, $item_id )
-{
-	return protector_notify_base( "'.$mydirname.'" , $category , $item_id ) ;
-}
-') ;
+eval( 'function ' . $mydirname . '_notify_iteminfo( $category, $item_id )
+{return protector_notify_base( \'' . $mydirname . '\' , $category , $item_id ) ;}' );
 
-if (! function_exists('protector_notify_base')) {
-    function protector_notify_base($mydirname, $category, $item_id)
-    {
-        include_once dirname(__FILE__).'/include/common_functions.php' ;
+if ( ! function_exists( 'protector_notify_base' ) ) {
 
-        $db =& Database::getInstance() ;
+	/**
+	 * @param $mydirname
+	 * @param $category
+	 * @param $item_id
+	 *
+	 * @return mixed
+	 */
+	function protector_notify_base( $mydirname, $category, $item_id ) {
+		include_once __DIR__ . '/include/common_functions.php';
 
-        $module_handler =& xoops_gethandler('module') ;
-        $module =& $module_handler->getByDirname($mydirname) ;
+		$db =& Database::getInstance();
 
-        if ($category == 'global') {
-            $item['name'] = '';
-            $item['url'] = '';
-            return $item ;
-        }
-    }
+		$module_handler =& xoops_gethandler( 'module' );
+		$module         =& $module_handler->getByDirname( $mydirname );
+
+		if ( 'global' == $category ) {
+			$item['name'] = '';
+			$item['url']  = '';
+
+			return $item;
+		}
+	}
 }
