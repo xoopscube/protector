@@ -13,7 +13,7 @@ CREATE TABLE log
     KEY (ip),
     KEY (type),
     KEY (timestamp)
-) ENGINE = InnoDB;
+) ENGINE=InnoDB;
 
 CREATE TABLE access
 (
@@ -25,4 +25,4 @@ CREATE TABLE access
     KEY (request_uri),
     KEY (malicious_actions),
     KEY (expire)
-) ENGINE = InnoDB;
+) ENGINE=InnoDB;

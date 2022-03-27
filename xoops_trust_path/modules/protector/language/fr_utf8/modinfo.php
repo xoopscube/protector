@@ -7,11 +7,6 @@ $constpref = '_MI_' . strtoupper($mydirname) ;
 
 if (defined('FOR_XOOPS_LANG_CHECKER') || ! defined($constpref.'_LOADED')) {
 
-
-
-
-
-
 // Appended by Xoops Language Checker -GIJOE- in 2017-02-27 14:47:39
 define($constpref.'_BANIP_IPV6PREFIX', 'IPv6 deny list registration prefix');
     define($constpref.'_BANIP_IPV6PREFIXDSC', 'Number of prefix bit at IPv6 address registration (128 bit to all bits)');
