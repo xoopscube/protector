@@ -126,5 +126,5 @@ if ( defined( 'FOR_XOOPS_LANG_CHECKER' ) || ! defined( $constpref . '_LOADED' ) 
 	define( $constpref . '_MANIPUCHECK', 'サイト改ざんチェックを有効にする' );
 	define( $constpref . '_MANIPUCHECKDSC', '簡易的な書き換えチェックを行い、index.php等に変更があったらその旨を通知します' );
 	define( $constpref . '_MANIPUVALUE', 'サイト改ざんチェック値' );
-	define( $constpref . '_MANIPUVALUEDSC', '意味を理解していない限り編集しないでください' );
+	define( $constpref . '_MANIPUVALUEDSC', '⛔ 意味を理解していない限り編集しないでください' );
 }

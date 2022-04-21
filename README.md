@@ -11,7 +11,7 @@ MODULE | Protector
 ------------ | -------------
 Description | Protector is a module to secure XCL Web Application Platform and CMS from various and malicious attacks..
 Render Engine | Smarty v2 and XCube Layout
-Version | 2.3.1
+Version | 3.55.1
 Author | @gigamaster Nuno Luciano (XCL7)
 Author | Original by Gijoe (https://peak.ne.jp/)
 Copyright | 2005-2022 Authors
@@ -46,5 +46,4 @@ License | GPL
 - Executable File Uploading Attack
 - XMLRPC's eval() and SQL Injection Attacks
 - SPAMs for comment, trackback etc.
-
 

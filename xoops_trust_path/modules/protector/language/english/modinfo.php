@@ -100,31 +100,31 @@ if ( defined( 'FOR_XOOPS_LANG_CHECKER' ) || ! defined( $constpref . '_LOADED' ) 
 	define( $constpref . '_DOSOPT_EXIT', 'Blank Screen' );
 	define( $constpref . '_DOSOPT_BIP', 'Ban the IP (No limit)' );
 	define( $constpref . '_DOSOPT_BIPTIME0', 'Ban the IP (moratorium)' );
-	define( $constpref . '_DOSOPT_HTA', 'DENY by .htaccess(Experimental)' );
+	define( $constpref . '_DOSOPT_HTA', 'DENY by .htaccess (Experimental)' );
 
 	define( $constpref . '_BIP_EXCEPT', 'Safe Groups' );
 	define( $constpref . '_BIP_EXCEPTDSC', 'Users from the selected groups are not registered as Bad IP.<br>It is recommended to select the group of administrators: Webmasters' );
 
 	define( $constpref . '_DISABLES', 'Disable XML-RPC to avoid a brute force attack. It is recommend to check for such dangerous feature on older XOOPS versions and modules (eg. Xpress, Wordpress).' );
 
-	define( $constpref . '_DBLAYERTRAP', 'Enable DB Layer trapping anti-SQL-Injection' );
-	define( $constpref . '_DBLAYERTRAPDSC', 'Most SQL Injection attacks will be canceled by this feature. This feature is required a support from databasefactory. You can check it on Security Advisory page. This setting must be on. Never turn it off casually.' );
-	define( $constpref . '_DBTRAPWOSRV', 'Never checking _SERVER for anti-SQL-Injection' );
-	define( $constpref . '_DBTRAPWOSRVDSC', 'Some servers always enable DB Layer trapping. It causes wrong detections as SQL Injection attack. If you got such errors, turn this option on. You should know this option weakens the security of DB Layer trapping anti-SQL-Injection.' );
+	define( $constpref . '_DBLAYERTRAP', 'Enable DB Layer trapping Anti-SQL-Injection' );
+	define( $constpref . '_DBLAYERTRAPDSC', 'Most SQL injection attacks will be negated by this feature. This feature requires databasefactory support. You can check it on the Security Notices page. This setting must be enabled. Never turn it off accidentally!' );
+	define( $constpref . '_DBTRAPWOSRV', 'Never check _SERVER for Anti-SQL-Injection' );
+	define( $constpref . '_DBTRAPWOSRVDSC', 'Some servers still enable DB Layer trapping. This causes bad detections like an SQL injection attack. If you have such errors, enable this option. You should be aware that this option weakens the security of DB Layer trapping anti-SQL-Injection.' );
 
-	define( $constpref . '_BIGUMBRELLA', 'enable anti-XSS (BigUmbrella)' );
-	define( $constpref . '_BIGUMBRELLADSC', 'This protects you from almost attacks via XSS vulnerabilities. But it is not 100%' );
+	define( $constpref . '_BIGUMBRELLA', 'Enable Anti-XSS (BigUmbrella)' );
+	define( $constpref . '_BIGUMBRELLADSC', 'This protects you from almost all attacks via XSS vulnerabilities. But it is not 100% sure' );
 
-	define( $constpref . '_SPAMURI4U', 'anti-SPAM: URLs for normal users' );
-	define( $constpref . '_SPAMURI4UDSC', 'If this number of URLs are found in POST data from users other than admin, the POST is considered as SPAM. 0 means disabling this feature.' );
-	define( $constpref . '_SPAMURI4G', 'anti-SPAM: URLs for guests' );
+	define( $constpref . '_SPAMURI4U', 'Anti-SPAM: Limit the number of URLs for user posts' );
+	define( $constpref . '_SPAMURI4UDSC', 'If this number of URLs is in the POST data of users other than the administrator, the POST is considered SPAM. 0 means disable this feature.' );
+	define( $constpref . '_SPAMURI4G', 'Anti-SPAM: Limit the number of URLs for guests' );
 	define( $constpref . '_SPAMURI4GDSC', 'If this number of URLs are found in POST data from guests, the POST is considered as SPAM. 0 means disabling this feature.' );
 
-	define( $constpref . '_FILTERS', 'filters enabled in this site' );
-	define( $constpref . '_FILTERSDSC', 'specify each file names inside of filters_byconfig/ per a paragraph. (eg. postcommon_post_deny_by_httpbl.php)' );
+	define( $constpref . '_FILTERS', 'Enable filters' );
+	define( $constpref . '_FILTERSDSC', 'Specify each file name inside of /filters_byconfig/ with a new line.<br> eg. postcommon_post_deny_by_httpbl.php' );
 
-	define( $constpref . '_MANIPUCHECK', 'enable manipulation checking' );
-	define( $constpref . '_MANIPUCHECKDSC', 'notify to admin if your root folder or index.php is modified.' );
-	define( $constpref . '_MANIPUVALUE', 'value for manipulation checking' );
-	define( $constpref . '_MANIPUVALUEDSC', 'do not edit this field' );
+	define( $constpref . '_MANIPUCHECK', '<b>Enable check files change</b>' );
+	define( $constpref . '_MANIPUCHECKDSC', '🔔 Notify administrators if the root folder or index changes.' );
+	define( $constpref . '_MANIPUVALUE', '<b>Value to check files change</b>' );
+	define( $constpref . '_MANIPUVALUEDSC', '⛔ Warning, do not change this field !' );
 }

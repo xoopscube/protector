@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 class protector_postcommon_post_htmlpurify4guest extends ProtectorFilterAbstract {
@@ -19,18 +19,19 @@ class protector_postcommon_post_htmlpurify4guest extends ProtectorFilterAbstract
 		global $xoopsUser;
 
 		// HTMLPurifier runs with PHP5 only
-		if ( version_compare( PHP_VERSION, '5.0.0' ) < 0 ) {
-			die( 'Turn postcommon_post_htmlpurify4guest.php off because this filter cannot run with PHP4' );
-		}
+        // @todo @deprecated @gigamaster
+//		if ( version_compare( PHP_VERSION, '5.0.0' ) < 0 ) {
+//			die( 'Turn postcommon_post_htmlpurify4guest.php off because this filter cannot run with PHP4' );
+//		}
 
 		if ( is_object( $xoopsUser ) ) {
 			return true;
 		}
 
-		if ( file_exists( XOOPS_LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php' ) ) {
+		if ( file_exists( LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php' ) ) {
 
 			// !Fix se HTMLPurifier inside TRUST_PATH/libs
-			require_once XOOPS_LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php';
+			require_once LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php';
 
 			$config = HTMLPurifier_Config::createDefault();
 			$config->set( 'Cache.SerializerPath', XOOPS_TRUST_PATH . '/modules/protector/configs' );

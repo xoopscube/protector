@@ -6,13 +6,13 @@ class protector_postcommon_post_htmlpurify4everyone extends ProtectorFilterAbstr
 
 	public function execute() {
 		// HTMLPurifier runs with PHP5 only
-		if ( version_compare( PHP_VERSION, '5.0.0' ) < 0 ) {
-			die( 'Turn postcommon_post_htmlpurify4everyone.php off because this filter cannot run with PHP4' );
-		}
+//		if ( version_compare( PHP_VERSION, '5.0.0' ) < 0 ) {
+//			die( 'Turn postcommon_post_htmlpurify4everyone.php off because this filter cannot run with PHP4' );
+//		}
 
-		if ( file_exists( XOOPS_LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php' ) ) {
+		if ( file_exists( LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php' ) ) {
 
-			require_once XOOPS_LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php';
+			require_once LIBRARY_PATH . '/htmlpurifier/library/HTMLPurifier.auto.php';
 			$config = HTMLPurifier_Config::createDefault();
 			$config->set( 'Cache.SerializerPath', XOOPS_TRUST_PATH . '/modules/protector/configs' );
 			$config->set( 'Core.Encoding', 'UTF-8' );

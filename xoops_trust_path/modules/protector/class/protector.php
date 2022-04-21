@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 class protector {
@@ -81,17 +81,6 @@ class protector {
 		if ( ! empty( $this->_conf['global_disabled'] ) ) {
 			return true;
 		}
-
-		// die if PHP_SELF XSS found (disabled in 2.53)
-		//	if( preg_match( '/[<>\'";\n ]/' , @$_SERVER['PHP_SELF'] ) ) {
-		//		$this->message .= "Invalid PHP_SELF '{$_SERVER['PHP_SELF']}' found.\n" ;
-		//		$this->output_log( 'PHP_SELF XSS' ) ;
-		//		die( 'invalid PHP_SELF' ) ;
-		//	}
-
-		// sanitize against PHP_SELF/PATH_INFO XSS (disabled in 3.33)
-		//	$_SERVER['PHP_SELF'] = strtr( @$_SERVER['PHP_SELF'] , array( '<' => '%3C' , '>' => '%3E' , "'" => '%27' , '"' => '%22' ) ) ;
-		//	if( ! empty( $_SERVER['PATH_INFO'] ) ) $_SERVER['PATH_INFO'] = strtr( @$_SERVER['PATH_INFO'] , array( '<' => '%3C' , '>' => '%3E' , "'" => '%27' , '"' => '%22' ) ) ;
 
 		$this->_bad_globals = [
 			'GLOBALS',
@@ -918,7 +907,7 @@ class protector {
 			return true;
 		}
 
-		// gargage collection
+		// garbage collection
 		$result = $xoopsDB->queryF( 'DELETE FROM ' . $xoopsDB->prefix( $this->mydirname . '_access' ) . ' WHERE expire < UNIX_TIMESTAMP()' );
 
 		// for older versions before updating this module

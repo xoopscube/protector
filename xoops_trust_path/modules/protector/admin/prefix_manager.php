@@ -5,8 +5,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 require_once dirname( __DIR__ ) . '/class/gtickets.php';
@@ -176,7 +176,7 @@ while (false !== ($row_table = $db->fetchArray($srs))) {
 		fclose( $tempfile );
 	}
 
-//by domifara for add action zip ,ta.gzdownload
+// by domifara to add action zip ,ta.gz download
 	if ( ! empty( $_POST['download_zip'] ) ) {
 		require_once XOOPS_ROOT_PATH . '/class/zipdownloader.php';
 		$downloader = new XoopsZipDownloader();
@@ -191,7 +191,7 @@ while (false !== ($row_table = $db->fetchArray($srs))) {
 		exit;
 	}
 
-//fix for mb_http_output setting and for add any browsers
+//fix for mb_http_output setting and for any browsers
 	if ( function_exists( 'mb_http_output' ) ) {
 		mb_http_output( 'pass' );
 	}
@@ -252,7 +252,7 @@ while (false !== ($row_table = $db->fetchArray($srs))) {
 }
 
 
-// beggining of Output
+// beginning of Output
 xoops_cp_header();
 include __DIR__ . '/mymenu.php';
 
@@ -279,17 +279,18 @@ while ( $row_table = $db->fetchArray( $srs ) ) {
 
 
 // table
-echo "<div class='ui-card-main'>
-<h2>" . _AM_H3_PREFIXMAN . "</h2>
-<table class='outer'>
+echo "<h2>" . _AM_H3_PREFIXMAN . "</h2>
+    <div class='tips'>" . sprintf( _AM_TXT_HOWTOCHANGEDB, XOOPS_ROOT_PATH, XOOPS_DB_PREFIX ) . "</div>
+    <table class='outer'>
+    <thead>
 	<tr>
 		<th>PREFIX</th>
 		<th>TABLES</th>
 		<th>UPDATED</th>
 		<th>COPY</th>
-		<th>ACTIONS</th>
+		<th class='list_control'>ACTIONS</th>
 	</tr>
-";
+	</thead>";
 
 foreach ( $prefixes as $prefix ) {
 
@@ -317,16 +318,15 @@ foreach ( $prefixes as $prefix ) {
 		$del_button   = '';
 		$style_append = 'background:transparent';
 	} else {
-		$del_button   = "<input type='submit' name='delete' value='delete' onclick='return confirm(\"" . _AM_CONFIRM_DELETE . "\")'>";
+		$del_button   = "<input class='button delete' type='submit' name='delete' value='delete' onclick='return confirm(\"" . _AM_CONFIRM_DELETE . "\")'>";
 		$style_append = '';
 	}
 
-	echo "
-	<tr>
-		<td class='odd'>$prefix4disp</td>
-		<td class='odd'>$table_count</td>
-		<td class='odd'>{$prefix['updated']}</td>
-		<td class='odd'>
+	echo "<tr>
+		<td>$prefix4disp</td>
+		<td>$table_count</td>
+		<td>{$prefix['updated']}</td>
+		<td>
 			<form action='?page=prefix_manager' method='POST'>
 				$ticket_input
 				<input type='hidden' name='old_prefix' value='$prefix4disp'>
@@ -334,28 +334,24 @@ foreach ( $prefixes as $prefix ) {
 				<input type='submit' name='copy' value='copy'>
 			</form>
 		</td>
-		<td class='odd'>
+		<td class='list_control'>
 			<form action='?page=prefix_manager' method='POST'>
 				$ticket_input
 				<input type='hidden' name='prefix' value='$prefix4disp'>
 				$del_button
-				<input type='submit' name='backup' value='backup' onclick='this.form.target=\"_blank\"'>";
+				<input class='button backup' type='submit' name='backup' value='backup' onclick='this.form.target=\"_blank\"'>";
 	if ( function_exists( 'gzcompress' ) ) {
-		echo "<input type='submit' name='download_zip' value='zip' onclick='this.form.target=\"_blank\"'>";
+		echo "<input class='button download' type='submit' name='download_zip' value='zip' onclick='this.form.target=\"_blank\"'>";
 	}
 	if ( function_exists( 'gzencode' ) ) {
-		echo "<input type='submit' name='download_tgz' value='tar.gz' onclick='this.form.target=\"_blank\"'>";
+		echo "<input class='button download' type='submit' name='download_tgz' value='tar.gz' onclick='this.form.target=\"_blank\"'>";
 	}
-	echo "	</form>
+	echo "</form>
 		</td>
 	</tr>\n";
 }
 
-echo '
-</table>
-<p>' . sprintf( _AM_TXT_HOWTOCHANGEDB, XOOPS_ROOT_PATH, XOOPS_DB_PREFIX ) . '</p>
-</div>
-';
+echo '</table>';
 
 // Display Log if exists
 if ( ! empty( $_SESSION['protector_logger'] ) ) {

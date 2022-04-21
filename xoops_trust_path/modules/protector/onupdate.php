@@ -5,8 +5,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 eval( ' function xoops_module_update_' . $mydirname . '( $module ) { return protector_onupdate_base( $module , \'' . $mydirname . '\' ) ; } ' );
@@ -47,7 +47,7 @@ if ( ! function_exists( 'protector_onupdate_base' ) ) {
 				$db->query( 'ALTER TABLE ' . $db->prefix( 'config' ) . ' DROP KEY ' . $regs[1] );
 			}
 		}
-		$db->query( 'ALTER TABLE ' . $db->prefix( 'config' ) . ' ADD KEY `conf_title` (`conf_title`)' );
+		//$db->query( 'ALTER TABLE ' . $db->prefix( 'config' ) . ' ADD CONSTRAINT `conf_title` (`conf_title`)' );
 
 		// 2.x -> 3.0
 		[ , $create_string ] = $db->fetchRow( $db->query( 'SHOW CREATE TABLE ' . $db->prefix( $mydirname . '_log' ) ) );

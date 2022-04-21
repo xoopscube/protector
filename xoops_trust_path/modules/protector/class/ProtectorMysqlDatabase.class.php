@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 if ( file_exists( XOOPS_ROOT_PATH . '/class/database/drivers/' . XOOPS_DB_TYPE . '/database.php' ) ) {
@@ -34,14 +34,14 @@ class ProtectorMySQLDatabase extends ProtectorMySQLDatabase_base {
 	];
 
 	public function __construct() {
-		$protector               =& Protector::getInstance();
+		$protector               = Protector::getInstance();
 		$this->doubtful_requests = $protector->getDblayertrapDoubtfuls();
 		$this->doubtful_needles  = array_merge( $this->doubtful_needles, $this->doubtful_requests );
 	}
 
 
 	public function injectionFound( $sql ) {
-		$protector =& Protector::getInstance();
+		$protector = Protector::getInstance();
 
 		$protector->last_error_type = 'SQL Injection';
 		$protector->message         .= $sql;

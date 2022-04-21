@@ -5,8 +5,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 The XOOPS Cube Project
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 // language file (modinfo.php)
@@ -17,23 +17,24 @@ if ( file_exists( __DIR__ . '/language/' . @$GLOBALS['xoopsConfig']['language'] 
 }
 $constpref = '_MI_' . strtoupper( $mydirname );
 
-$modversion['name']             = constant( $constpref . '_NAME' );
-$modversion['description']      = constant( $constpref . '_DESC' );
-$modversion['version']          = '2.31';
-$modversion['detailed_version'] = '2.31.0';
-$modversion['credits']          = 'PEAK Corp. (v.3.54). Gigamaster (XCL23/PHP)';
-$modversion['author']           = 'GIJ=CHECKMATE PEAK Corp.(https://www.peak.ne.jp/) ';
-$modversion['cube_style']       = true;
-$modversion['help']             = 'help.html';
-$modversion['license']          = 'GPL';
-$modversion['official']         = 0;
-// $modversion['image'] = file_exists($mydirpath.'/module_icon.png') ? 'module_icon.png' : 'module_icon.php';
-$modversion['image']     = '/images/module_protector.svg';
-$modversion['iconbig']   = 'module_icon.php?file=iconbig';
-$modversion['iconsmall'] = 'module_icon.php?file=iconsmall';
-$modversion['dirname']   = $mydirname;
 
-// Any tables can't be touched by modulesadmin.
+// Manifesto
+$modversion['dirname']          = $mydirname;
+$modversion['name']             = constant( $constpref . '_NAME' );
+$modversion['version']          = file_get_contents(dirname(__FILE__).'/include/version.txt');
+$modversion['detailed_version'] = $modversion['version'].'.1';
+$modversion['description']      = constant( $constpref . '_DESC' );
+$modversion['author']           = 'GIJ=CHECKMATE PEAK Corp.(https://www.peak.ne.jp/) ';
+$modversion['credits']          = 'PEAK Corp. (v.3.54). Gigamaster (XCL23/PHP)';
+$modversion['license']          = 'GPL';
+$modversion['image']            = '/images/module_protector.svg';
+$modversion['icon']             = 'images/module_icon.svg';
+$modversion['help']             = 'help.html';
+$modversion['official']         = 0;
+$modversion['cube_style']       = false;
+
+// SQL
+// Tables can't be touched by modulesadmin.
 $modversion['sqlfile'] = false;
 $modversion['tables']  = [];
 

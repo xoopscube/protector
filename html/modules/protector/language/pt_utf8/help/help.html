@@ -1,16 +1,17 @@
-<section id="protector">
+<article id="protector">
 
 
     <nav id="help-menu">
         <ul>
-            <li><a href="#help-overview" class="ui-btn">Protector Module</a>
-            <li><a href="#help-features" class="ui-btn">Features</a>
-            <li><a href="#help-session" class="ui-btn">Session Hijacking</a>
-            <li><a href="#help-dos" class="ui-btn">DoS</a>
-            <li><a href="#help-crawler" class="ui-btn">Bad Crawlers</a>
-            <li><a href="#help-sql" class="ui-btn">SQL Injection</a>
-            <li><a href="#help-xss" class="ui-btn">XSS</a>
-            <li><a href="#help-var" class="ui-btn">Global Variables</a>
+            <li><a href="#help-overview" class="button">Protector Module</a>
+            <li><a href="#help-features" class="button">Features</a>
+            <li><a href="#help-blacklist" class="button">IP Blacklist</a>
+            <li><a href="#help-session" class="button">Session Hijacking</a>
+            <li><a href="#help-dos" class="button">DoS</a>
+            <li><a href="#help-crawler" class="button">Bad Crawlers</a>
+            <li><a href="#help-sql" class="button">SQL Injection</a>
+            <li><a href="#help-xss" class="button">XSS</a>
+            <li><a href="#help-var" class="button">Global Variables</a>
         </ul>
     </nav>
 
@@ -18,20 +19,20 @@
 <hr>
 
 
-    <article id="help-overview">
+    <section id="help-overview">
         <h3>Module Protector</h3>
         <p>The protector module can defend your site against most common attacks.
             However, you can change security settings and rules to a more strict web security policy mechanism.
         <p>Protector is a module developed by the trusted developer Gijoe to improve the security of a website,
             and is widely regarded aswell by other CMS as a ‘must have’ module.
         <p>Protector is capable of defending against most common attacks.
-    </article>
+    </section>
 
 
 <hr>
 
 
-    <article id="help-features">
+    <section id="help-features">
         <h3>Module Protector</h3>
         <ul>
         <li>Denial of service (DOS) attacks, bandwidth-hungry crawlers and spambots.</li>
@@ -43,13 +44,28 @@
         <p>Protector logs the attacking IPs and offers a range of countermeasures including IP bans, blank screens and automatic sanitisation of attempted injections etc.
         Protector also evaluates your site for certain vulnerabilities and providing warnings about them through a ‘security advisory’ page, and provides instructions on how to fix them.
         </p>
-    </article>
+    </section>
 
 
 <hr>
 
+<section id="help-blacklist">
+    <h3>IP Blacklist</h3>
 
-    <article id="help-session">
+    <p>What Is IP Blacklisting?
+    <p>IP blacklisting is a method used to filter out illegitimate or malicious IP addresses from accessing your networks.
+    Blacklists are lists containing ranges of or individual IP addresses that you want to block.
+    You can use these lists in combination with firewalls, intrusion prevention systems (IPS), and other traffic filtering tools.</p>
+
+    <p>Creating and applying blacklists enables you to filter malicious traffic according to policies or through the manual
+    addition of IP addresses. Many network security tools that use blacklists are also able to add new addresses to be
+        blocked. This can be done as externally referenced lists are updated or according to the results of event analysis.</p>
+    <p>Learn more</p>
+</section>
+
+<hr>
+
+    <section id="help-session">
         <h3>Session Hijacking</h3>
 
         <p>The Session Hijacking attack consists of the exploitation of the web session control mechanism, which is normally managed for a session token.
@@ -70,13 +86,13 @@
             <li>Man-in-the-middle attack
             <li>Man-in-the-browser attack
             </ul>
-    </article>
+    </section>
 
 
 <hr>
 
 
-    <article id="help-dos">
+    <section id="help-dos">
         <h3>Denial of Servie (DoS)</h3>
 
         <p>what it consist of: a DoS attack attempts to saturate the abilities of a server
@@ -97,13 +113,13 @@
         <p>Moreover in the recent versions of the module it is possible to deny the access to the portal through the use of the htaccess file (even thif this functionality is still at the experimental level)
 
         <p>Some modules, like for example the chat modules, are frequently updated by the users browser,, to follow the continuous informative flow that is modified. In order to avoid users using such modules as outlined for an attack, it is possible to indicate which modules to eclude from the anti-DoS control.
-    </article>
+    </section>
 
 
 <hr>
 
 
-    <article id="help-crawler">
+    <section id="help-crawler">
         <h3>Bad Crawlers</h3>
 
         <p>A crawler is an indexing motor and information collector (for example an email sender in a forum spamming)
@@ -117,13 +133,13 @@
             <li>banning the IP
             <li>a block frm .htaccess (experimental)
         </ul>
-    </article>
+    </section>
 
 
 <hr>
 
 
-    <article id="help-sql">
+    <section id="help-sql">
         <h3>SQL Injection</h3>
 
         <p>What it consists of : the attacker agent tries to operate a query on the database injecting thrrough the browser
@@ -145,13 +161,13 @@
             <li>to supply an empty page
             <li>banning the IP
         </ul>
-    </article>
+    </section>
 
 
 <hr>
 
 
-    <article id="help-xss">
+    <section id="help-xss">
         <h3>XSS cross site scripting</h3>
 
         <p>what is consist of : an attack Cross Situated Scripting (abbreviation XSS, not to be confused with CSS - Cascade Styling heets) is similar by nature to the SQL injection attacks, attempting to inject arbitrary scripts.
@@ -159,13 +175,13 @@
         <p>How th emodule reacts : being an extremely  varied and difficult type of attack to block, the ony true defense is to use tested, stable and sure modules, developed by a team recognized for realibility and competence.
 
         <p>The protector, in fact, it itself being a particularly powerful module, can only intercept a minimal part of these attacks, by means of treatment of the key fields like entire (see attacks SQL injection).
-    </article>
+    </section>
 
 
 <hr>
 
 
-    <article id="help-var">
+    <section id="help-var">
     <h3>Contamination of Global Variables</h3>
 
     <p>What it consists of : it consists of the achieving of particular results (corruption of the data, by obtaining administrator privileges,...) by means of the corruption of data contained in the global variables.
@@ -177,7 +193,7 @@
         <li>entry page
         <li>banning the IP
     </ul>
-    </article>
+    </section>
 
 
-</section>
+</article>
