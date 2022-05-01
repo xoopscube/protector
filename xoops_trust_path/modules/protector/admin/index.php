@@ -128,15 +128,15 @@ include __DIR__ . '/mymenu.php';
 echo "<h2>" . $xoopsModule->name() . "</h2>\n";
 
 ////— ACTION-CONTROL —\\\\
-echo '<div layout="row center-justify mb-4" class="action-control">
+echo '<section layout="row center-justify" class="action-control">
 <div><!-- Filters --></div>
     <div class="control-view">
         <a class="button" href="'. XOOPS_URL .'/modules/legacy/admin/index.php?action=PreferenceEdit&confcat_id=1#ip_ban">'. _AM_TH_IP_BAN .'</a>
         <button class="help-admin button" type="button" data-module="protector" data-help-article="#help-blacklist" title="'._HELP .'">
-            <span class="ui-icon ui-icon-help"></span>
+            <b>?</b>
         </button>
     </div>
-</div>';
+</section>';
 // -----/ CONTROL-ACTION
 
 // configs writable check
