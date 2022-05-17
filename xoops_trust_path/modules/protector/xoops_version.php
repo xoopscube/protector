@@ -22,7 +22,7 @@ $constpref = '_MI_' . strtoupper( $mydirname );
 $modversion['dirname']          = $mydirname;
 $modversion['name']             = constant( $constpref . '_NAME' );
 $modversion['version']          = file_get_contents(dirname(__FILE__).'/include/version.txt');
-$modversion['detailed_version'] = $modversion['version'].'.1';
+$modversion['detailed_version'] = $modversion['version'].'.2';
 $modversion['description']      = constant( $constpref . '_DESC' );
 $modversion['author']           = 'GIJ=CHECKMATE PEAK Corp.(https://www.peak.ne.jp/) ';
 $modversion['credits']          = 'PEAK Corp. (v.3.54). Gigamaster (XCL23/PHP)';
@@ -31,7 +31,7 @@ $modversion['image']            = '/images/module_protector.svg';
 $modversion['icon']             = 'images/module_icon.svg';
 $modversion['help']             = 'help.html';
 $modversion['official']         = 0;
-$modversion['cube_style']       = false;
+$modversion['cube_style']       = true;
 
 // SQL
 // Tables can't be touched by modulesadmin.

@@ -38,7 +38,7 @@ define( '_AM_FMT_CONFIGSNOTWRITABLE' , 'Turn the configs directory writable: %s'
 define( '_AM_H3_PREFIXMAN' , 'Prefix Manager');
 define( '_AM_MSG_DBUPDATED' , 'Database Updated Successfully!');
 define( '_AM_CONFIRM_DELETE' , 'All data will be dropped. Do you want to proceed ?');
-define( '_AM_TXT_HOWTOCHANGEDB' , "If you want to change the database prefix, edit the file :<br><code>%s/mainfile.php </code><br><br>define('XOOPS_DB_PREFIX', '<b>%s</b>');");
+define( '_AM_TXT_HOWTOCHANGEDB' , "To change the database prefix, edit the file :<br><code>%s/mainfile.php </code><br><br>define('XOOPS_DB_PREFIX', '<b>%s</b>');");
 
 
 // advisory.php
@@ -63,7 +63,7 @@ define( '_AM_ADV_MAIN_POSTCHECK' , 'Missing required postcheck!');
 // TRUST PATH
 define( '_AM_ADV_TRUSTPATH_PUBLIC_LINK' , 'Click here !');
 define( '_AM_ADV_TRUSTPATH_PUBLIC' , 'TRUST_PATH is not installed properly if the image -NG- is visible<br>
-    or the link returns a page with an alert message.<br>
+    or the link does not shows a 403 Forbidden Error.<br>
     The directory must be protected to return an Error 404, 403 or 500 !');
 define( '_AM_ADV_TRUSTPATH_DESC' , 'The safest place for the TRUST_PATH is outside of public DocumentRoot.<br>
     If this is not possible, increase security using Apache .htaccess file or equivalent Nginx directives.');

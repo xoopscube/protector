@@ -132,7 +132,7 @@ echo '<section layout="row center-justify" class="action-control">
 <div><!-- Filters --></div>
     <div class="control-view">
         <a class="button" href="'. XOOPS_URL .'/modules/legacy/admin/index.php?action=PreferenceEdit&confcat_id=1#ip_ban">'. _AM_TH_IP_BAN .'</a>
-        <button class="help-admin button" type="button" data-module="protector" data-help-article="#help-blacklist" title="'._HELP .'">
+        <button class="help-admin button" type="button" data-module="protector" data-help-article="#help-blacklist" aria-label="'._HELP .'">
             <b>?</b>
         </button>
     </div>
@@ -233,7 +233,7 @@ while ( list( $lid, $uid, $ip, $agent, $type, $description, $timestamp, $uname )
         $agent_short = substr( $agent, 0, strpos( $agent, ' ' ) );
     }
     $agent4disp = htmlspecialchars( $agent, ENT_QUOTES );
-    $agent_desc = $agent == $agent_short ? $agent4disp : htmlspecialchars( $agent_short, ENT_QUOTES ) . "<img src='../images/dotdotdot.gif' alt='$agent4disp' title='$agent4disp'>";
+    $agent_desc = $agent == $agent_short ? $agent4disp : htmlspecialchars( $agent_short, ENT_QUOTES ) . "<img src='../images/dotdotdot.gif' alt='$agent4disp' aria-label='$agent4disp'>";
 
     echo "<tbody>
     <tr>

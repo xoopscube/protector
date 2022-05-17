@@ -27,7 +27,7 @@ define($constpref.'_DBTRAPWOSRVDSC', 'Some servers always enable DB Layer trappi
 
 // Appended by Xoops Language Checker -GIJOE- in 2009-01-14 11:10:54
 define($constpref.'_DBLAYERTRAP', 'Enable DB Layer trapping anti-SQL-Injection');
-define($constpref.'_DBLAYERTRAPDSC', 'Almost SQL Injection attacks will be canceled by this feature. This feature is required a support from databasefactory. You can check it on Security Advisory page.');
+define($constpref.'_DBLAYERTRAPDSC', 'Almost SQL Injection attacks will be canceled by this feature. This feature is required a support from databasefactory. You can check it on Security Advisor page.');
 
 // Appended by Xoops Language Checker -GIJOE- in 2008-11-21 04:44:31
 define($constpref.'_DEFAULT_LANG', 'Default language');

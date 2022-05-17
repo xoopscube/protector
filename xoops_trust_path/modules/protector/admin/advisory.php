@@ -108,12 +108,12 @@ echo "<h4><input class='switch' type='checkbox' name='server-software-info' oncl
 echo '<div class="server-software" style="display:none">
     <div class="tips">'. _AM_ADV_APACHE .' <code>$_SERVER["SERVER_SOFTWARE"]</code></div>'
      .'<table class="outer">
-    <tr><td style="width:25%">'. _AM_ADV_SERVER .'</td><td><strong>' . $_SERVER['SERVER_SOFTWARE'] . '</strong> <code title="php sapi name">' . php_sapi_name() . '</code>
-    <code title="GATEWAY_INTERFACE">' . $_SERVER['GATEWAY_INTERFACE'] . '</code>
-    <code title="SERVER_PROTOCOL">' . $_SERVER['SERVER_PROTOCOL'] . '</code>
-    <strong>Protocol:</strong><code title="Protocol http or https">' . $protocol . '</code></td></tr>
+    <tr><td style="width:25%">'. _AM_ADV_SERVER .'</td><td><strong>' . $_SERVER['SERVER_SOFTWARE'] . '</strong> <code aria-label="php sapi name">' . php_sapi_name() . '</code>
+    <code aria-label="GATEWAY_INTERFACE">' . $_SERVER['GATEWAY_INTERFACE'] . '</code>
+    <code aria-label="SERVER_PROTOCOL">' . $_SERVER['SERVER_PROTOCOL'] . '</code>
+    <strong>Protocol:</strong><code aria-label="Protocol http or https">' . $protocol . '</code></td></tr>
     <tr><td>Server Address : <b>' . $_SERVER['SERVER_ADDR'] . '</b></td><td>Server Name : <b>' . $_SERVER['SERVER_NAME'] . '</b></td></tr>
-    <tr><td>HTTP_ACCEPT</td><td>' . $_SERVER['HTTP_ACCEPT'] . ' <code>' . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . '</code> <code title="HTTP_ACCEPT_ENCODING">' . $_SERVER['HTTP_ACCEPT_ENCODING'] . '</code></td></tr>
+    <tr><td>HTTP_ACCEPT</td><td>' . $_SERVER['HTTP_ACCEPT'] . ' <code>' . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . '</code> <code aria-label="HTTP_ACCEPT_ENCODING">' . $_SERVER['HTTP_ACCEPT_ENCODING'] . '</code></td></tr>
     <tr><td>DOCUMENT_ROOT</td><td>' . $_SERVER['DOCUMENT_ROOT'] . '</td></tr>
     <tr><td>SCRIPT_FILENAME</td><td>' . $_SERVER['SCRIPT_FILENAME'] . '</td></tr>
     <tr><td>PHP SELF</td><td>' . $_SERVER['PHP_SELF'] . '</td></tr>
