@@ -3,10 +3,10 @@
  * Protector module for XCL
  *
  * @package    Protector
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  * @brief      Don't enable this for site using single-byte.
                Perhaps, japanese, schinese, tchinese, and korean can use it.
@@ -39,7 +39,7 @@ class protector_postcommon_post_need_multibyte extends ProtectorFilterAbstract {
 				continue;
 			}
 
-			$check_length = isset( $lengths[ $key ] ) ? $lengths[ $key ] : $lengths[0];
+			$check_length = $lengths[ $key ] ?? $lengths[0];
 			if ( strlen( $data ) > $check_length ) {
 				if ( mb_strlen( $data, 'ISO-8859-1' ) == mb_strlen( $data, _CHARSET ) ) {
 					$this->protector->message .= "No multibyte character was found ($data)\n";

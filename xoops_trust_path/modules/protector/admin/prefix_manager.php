@@ -1,11 +1,12 @@
 <?php
 /**
- * Protector module for XCL - Administration panel.
+ * Protector module for XCL - Database prefix manager and backup
+ *
  * @package    Protector
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2023 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -107,7 +108,7 @@ while (false !== ($row_table = $db->fetchArray($srs))) {
 			continue;
 		}
 		$drs = $db->queryF( "SHOW CREATE TABLE `$table`" );
-		list( , $create ) = $db->fetchRow( $drs );
+		[, $create] = $db->fetchRow( $drs );
 		$line = "\nDROP TABLE IF EXISTS `$table`;\n" . $create . ";\n\n";
 		if ( $tempfile ) {
 			fwrite( $tempfile, $line );

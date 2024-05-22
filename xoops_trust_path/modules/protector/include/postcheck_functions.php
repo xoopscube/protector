@@ -3,10 +3,10 @@
  * Protector module for XCL
  *
  * @package    Protector
- * @version    XCL 2.3.3
+ * @version    XCL 2.4.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2024 Authors
  * @license    GPL v2.0
  */
 
@@ -44,7 +44,7 @@ function protector_postcommon() {
 		return true;
 	}
 
-	$last_ip                       = isset( $_SESSION['protector_last_ip'] ) ? $_SESSION['protector_last_ip'] : '';
+	$last_ip                       = $_SESSION['protector_last_ip'] ?? '';
 	$_SESSION['protector_last_ip'] = $protector->remote_ip;
 
 	// group1_ips (groupid=1)
