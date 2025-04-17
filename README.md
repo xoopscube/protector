@@ -52,3 +52,25 @@ License | GPL
 - XMLRPC's eval() and SQL Injection Attacks
 - SPAMs for comment, trackback etc.
 
+### Proxy
+
+The Web Proxy feature in the Protector module offers several layers of protection when accessing external resources:
+
+1. **Content Filtering**: The proxy scans external content for malicious code, scripts, or other harmful elements before delivering it to users.
+
+2. **URL Validation**: It validates external URLs to prevent access to known malicious websites or phishing domains.
+
+3. **Identity Protection**: By routing requests through your server, it masks the identity of your users when they access external resources.
+
+4. **Resource Caching**: As shown in the dashboard statistics, it caches external resources to improve performance and reduce repeated exposure to potentially harmful content.
+
+5. **Access Control**: The proxy can restrict access to certain types of content or domains based on configurable rules.
+
+6. **Malicious Request Blocking**: The dashboard shows "Blocked Malicious" statistics, indicating that it actively blocks requests that appear to be harmful.
+
+7. **Traffic Monitoring**: It logs all proxy requests, allowing administrators to review access patterns and identify potential security issues.
+
+This proxy acts as a security intermediary between your users and external web content, similar to how corporate proxies protect internal networks.  
+It's particularly useful when you need to display or access external content within your XOOPSCube site while maintaining security controls.
+
+The statistics displayed in the dashboard (total requests, cached resources, and blocked malicious requests) help you monitor the proxy's effectiveness in protecting your site.
