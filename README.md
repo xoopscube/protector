@@ -38,6 +38,7 @@ License | GPL
 
 ### Features :
 
+- Content Security Policy (CSP)
 - DoS attack and Bad Crawlers (and bots collecting e-mails)
 - SQL Injection
 - XSS (not all though)
