@@ -36,6 +36,10 @@ License | GPL
 -----
 
 
+### Overview
+
+Protector safeguards your website against multiple security threats including DoS attacks, SQL Injection, XSS vulnerabilities, session hijacking, and global variable contamination, Content Security Policy (CSP) implementation, CORS protection, IP filtering, brute force prevention, and comprehensive security logging.
+
 ### Features :
 
 - Content Security Policy (CSP)
