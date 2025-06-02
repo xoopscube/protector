@@ -2,31 +2,36 @@
 /**
  * Protector module for XCL
  * @package    Protector
- * @version    XCL 2.4.0
- * @author     Other authors Gigamaster, 2020 XCL PHP7
+ * @version    XCL 2.5.0
+ * @author     Nuno Luciano aka gigamaster (XCL/PHP8)
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 
 // language file (modinfo.php)
-if ( file_exists( __DIR__ . '/language/' . @$GLOBALS['xoopsConfig']['language'] . '/modinfo.php' ) ) {
-	include __DIR__ . '/language/' . @$GLOBALS['xoopsConfig']['language'] . '/modinfo.php';
-} elseif ( file_exists( __DIR__ . '/language/english/modinfo.php' ) ) {
-	include __DIR__ . '/language/english/modinfo.php';
+$langmanpath = XOOPS_TRUST_PATH . '/libs/altsys/class/D3LanguageManager.class.php';
+
+if ( ! file_exists( $langmanpath ) ) {
+	die( 'install the module UI Components' );
 }
+
+require_once( $langmanpath );
+
+$langman = D3LanguageManager::getInstance();
+$langman->read( 'modinfo.php', $mydirname, $mytrustdirname, false );
 
 $constpref = '_MI_' . strtoupper( $mydirname );
 
 // Manifesto
 $modversion['dirname']          = $mydirname;
+$modversion['trust_dirname']    = $mytrustdirname;
 $modversion['name']             = constant( $constpref . '_NAME' );
-$modversion['version']          = '3.60';
-$modversion['detailed_version'] = '3.60.0';
-$modversion['detailed_version'] = $modversion['version'].'.1';
+$modversion['version']          = '4.00';
+$modversion['detailed_version'] = '4.00.0';
 $modversion['description']      = constant( $constpref . '_DESC' );
-$modversion['author']           = 'GIJ=CHECKMATE PEAK Corp.(https://www.peak.ne.jp/) ';
-$modversion['credits']          = 'PEAK Corp. (v.3.54). Gigamaster (XCL23/PHP)';
+$modversion['author']           = 'GIJ=CHECKMATE, Nuno Luciano aka Gigamaster (XCL/PHP8)';
+$modversion['credits']          = 'PEAK Corp.(v.3.54) (https://www.peak.ne.jp/)';
 $modversion['license']          = 'GPL';
 $modversion['image']            = '/images/module_protector.svg';
 $modversion['icon']             = 'images/module_icon.svg';
@@ -39,12 +44,15 @@ $modversion['cube_style']       = true;
 $modversion['sqlfile'] = false;
 $modversion['tables']  = [];
 
-// Admin things
+// Admin menu and default admin page
 $modversion['hasAdmin']   = 1;
-$modversion['adminindex'] = 'admin/index.php?page=advisory';
+$modversion['adminindex'] = 'admin/index.php?page=dashboard';
 $modversion['adminmenu']  = 'admin/admin_menu.php';
 
 // Templates
+$modversion['templates'] = [
+  ['file' => 'protector_proxy.html', 'description' => 'Web Proxy Template'] // comment to use template from xoops_trust_path
+];
 
 // Blocks
 $modversion['blocks'] = [];
@@ -52,7 +60,21 @@ $modversion['blocks'] = [];
 // Menu
 $modversion['hasMain'] = 0;
 
-// Config
+// Search
+$modversion['hasSearch'] = 0;
+
+// Comments
+$modversion['hasComments'] = 0;
+
+// Add notification capability
+$modversion['hasnotification'] = 1;
+
+// onInstall, onUpdate, onUninstall
+$modversion['onInstall']   = 'oninstall.php';
+$modversion['onUpdate']    = 'onupdate.php';
+$modversion['onUninstall'] = 'onuninstall.php';
+
+// Config Settings (admin preferences settings generated automatically)
 $modversion['config'][1] = [
 	'name'        => 'global_disabled',
 	'title'       => $constpref . '_GLOBAL_DISBL',
@@ -103,6 +125,117 @@ $modversion['config'][]  = [
 		$constpref . '_LOGLEVEL255' => 255
 	],
 ];
+
+// Content Security Policy settings
+$modversion['config'][] = [
+    'name' => 'enable_csp',
+    'title' => '_MI_PROTECTOR_ENABLE_CSP',
+    'description' => '_MI_PROTECTOR_ENABLE_CSP_DESC',
+    'formtype' => 'yesno',
+    'valuetype' => 'int',
+    'default' => 0
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_legacy_support',
+    'title' => '_MI_PROTECTOR_CSP_LEGACY_SUPPORT',
+    'description' => '_MI_PROTECTOR_CSP_LEGACY_SUPPORT_DESC',
+    'formtype' => 'yesno',
+    'valuetype' => 'int',
+    'default' => 0
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_default_src',
+    'title' => '_MI_PROTECTOR_CSP_DEFAULT_SRC',
+    'description' => '_MI_PROTECTOR_CSP_DEFAULT_SRC_DESC',
+    'formtype' => 'textbox',
+    'valuetype' => 'text',
+    'default' => "'self'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_script_src',
+    'title' => '_MI_PROTECTOR_CSP_SCRIPT_SRC',
+    'description' => '_MI_PROTECTOR_CSP_SCRIPT_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'self' 'unsafe-inline' 'unsafe-eval'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_style_src',
+    'title' => '_MI_PROTECTOR_CSP_STYLE_SRC',
+    'description' => '_MI_PROTECTOR_CSP_STYLE_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'self' 'unsafe-inline'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_img_src',
+    'title' => '_MI_PROTECTOR_CSP_IMG_SRC',
+    'description' => '_MI_PROTECTOR_CSP_IMG_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'self' data:"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_connect_src',
+    'title' => '_MI_PROTECTOR_CSP_CONNECT_SRC',
+    'description' => '_MI_PROTECTOR_CSP_CONNECT_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'self'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_font_src',
+    'title' => '_MI_PROTECTOR_CSP_FONT_SRC',
+    'description' => '_MI_PROTECTOR_CSP_FONT_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'self'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_object_src',
+    'title' => '_MI_PROTECTOR_CSP_OBJECT_SRC',
+    'description' => '_MI_PROTECTOR_CSP_OBJECT_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'none'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_media_src',
+    'title' => '_MI_PROTECTOR_CSP_MEDIA_SRC',
+    'description' => '_MI_PROTECTOR_CSP_MEDIA_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'self'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_frame_src',
+    'title' => '_MI_PROTECTOR_CSP_FRAME_SRC',
+    'description' => '_MI_PROTECTOR_CSP_FRAME_SRC_DESC',
+    'formtype' => 'textarea',
+    'valuetype' => 'text',
+    'default' => "'self'"
+];
+
+$modversion['config'][] = [
+    'name' => 'csp_report_uri',
+    'title' => '_MI_PROTECTOR_CSP_REPORT_URI',
+    'description' => '_MI_PROTECTOR_CSP_REPORT_URI_DESC',
+    'formtype' => 'textbox',
+    'valuetype' => 'text',
+    'default' => ''
+];
+
+// Protector misc settings
 $modversion['config'][]  = [
 	'name'        => 'banip_time0',
 	'title'       => $constpref . '_BANIP_TIME0',
@@ -166,15 +299,6 @@ $modversion['config'][]  = [
 	'default'     => '1',
 	'options'     => [],
 ];
-/* $modversion['config'][] = array(
-    'name'			=> 'die_nullbyte' ,
-    'title'			=> $constpref.'_DIE_NULLBYTE' ,
-    'description'	=> $constpref.'_DIE_NULLBYTEDSC' ,
-    'formtype'		=> 'yesno' ,
-    'valuetype'		=> 'int' ,
-    'default'		=> "1" ,
-    'options'		=> array()
-) ; */
 $modversion['config'][] = [
 	'name'        => 'die_badext',
 	'title'       => $constpref . '_DIE_BADEXT',
@@ -414,20 +538,305 @@ $modversion['config'][] = [
 	'options'     => [],
 ];
 
+// Threat Intelligence configs
+$modversion['config'][] = [
+    'name'        => 'httpbl_enabled',
+    'title'       => $constpref . '_HTTPBL_ENABLED',
+    'description' => $constpref . '_HTTPBL_ENABLED_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0,
+];
 
-// Search
-$modversion['hasSearch'] = 0;
+$modversion['config'][] = [
+    'name'        => 'httpbl_key',
+    'title'       => $constpref . '_HTTPBL_KEY',
+    'description' => $constpref . '_HTTPBL_KEY_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'text',
+    'default'     => '',
+];
 
-// Comments
-$modversion['hasComments'] = 0;
+$modversion['config'][] = [
+    'name'        => 'httpbl_threat_threshold',
+    'title'       => $constpref . '_HTTPBL_THREAT_THRESHOLD',
+    'description' => $constpref . '_HTTPBL_THREAT_THRESHOLD_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 25,
+];
 
-// Config Settings (only for modules that need config settings generated automatically)
+$modversion['config'][] = [
+    'name'        => 'ti_feed_urls',
+    'title'       => $constpref . '_FEED_URLS',
+    'description' => $constpref . '_FEED_URLS_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => '',
+];
+
+$modversion['config'][] = [
+    'name'        => 'ti_check_login',
+    'title'       => $constpref . '_CHECK_LOGIN',
+    'description' => $constpref . '_CHECK_LOGIN_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+];
+
+$modversion['config'][] = [
+    'name'        => 'ti_check_register',
+    'title'       => $constpref . '_CHECK_REGISTER',
+    'description' => $constpref . '_CHECK_REGISTER_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+];
+
+$modversion['config'][] = [
+    'name'        => 'ti_check_forms',
+    'title'       => $constpref . '_CHECK_FORMS',
+    'description' => $constpref . '_CHECK_FORMS_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0,
+];
+
+$modversion['config'][] = [
+    'name'        => 'ti_check_admin',
+    'title'       => $constpref . '_CHECK_ADMIN',
+    'description' => $constpref . '_CHECK_ADMIN_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0,
+];
+
+$modversion['config'][] = [
+    'name'        => 'ti_cache_duration',
+    'title'       => $constpref . '_CACHE_DURATION',
+    'description' => $constpref . '_CACHE_DURATION_DESC',
+    'formtype'    => 'select',
+    'valuetype'   => 'int',
+    'default'     => 3600,
+    'options'     => [
+        $constpref . '_CACHE_1HOUR' => 3600,
+        $constpref . '_CACHE_6HOURS' => 21600,
+        $constpref . '_CACHE_1DAY' => 86400,
+        $constpref . '_CACHE_1WEEK' => 604800,
+    ],
+];
+
+// Add proxy configuration options
+$modversion['config'][] = [
+    'name'        => 'proxy_enabled',
+    'title'       => '_MI_PROTECTOR_PROXY_ENABLED',
+    'description' => '_MI_PROTECTOR_PROXY_ENABLED_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
+
+// Add user group permissions for module access
+$modversion['config'][] = [
+    'name'        => 'module_access_groups',
+    'title'       => $constpref . '_MODULE_ACCESS_GROUPS',
+    'description' => $constpref . '_MODULE_ACCESS_GROUPS_DESC',
+    'formtype'    => 'group_multi',
+    'valuetype'   => 'array',
+    'default'     => [1], // Default to admin group only
+    'options'     => [],
+];
+
+// Add user group permissions for proxy access
+$modversion['config'][] = [
+    'name'        => 'proxy_access_groups',
+    'title'       => $constpref . '_PROXY_ACCESS_GROUPS',
+    'description' => $constpref . '_PROXY_ACCESS_GROUPS_DESC',
+    'formtype'    => 'group_multi',
+    'valuetype'   => 'array',
+    'default'     => [1], // Default to admin group only
+    'options'     => [],
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_allowed_domains',
+    'title'       => '_MI_PROTECTOR_PROXY_ALLOWED_DOMAINS',
+    'description' => '_MI_PROTECTOR_PROXY_ALLOWED_DOMAINS_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => ''
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_blocked_domains',
+    'title'       => '_MI_PROTECTOR_PROXY_BLOCKED_DOMAINS',
+    'description' => '_MI_PROTECTOR_PROXY_BLOCKED_DOMAINS_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => ''
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_cache_enabled',
+    'title'       => '_MI_PROTECTOR_PROXY_CACHE_ENABLED',
+    'description' => '_MI_PROTECTOR_PROXY_CACHE_ENABLED_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_cache_time',
+    'title'       => '_MI_PROTECTOR_PROXY_CACHE_TIME',
+    'description' => '_MI_PROTECTOR_PROXY_CACHE_TIME_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 3600
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_log_requests',
+    'title'       => '_MI_PROTECTOR_PROXY_LOG_REQUESTS',
+    'description' => '_MI_PROTECTOR_PROXY_LOG_REQUESTS_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_strip_js',
+    'title'       => '_MI_PROTECTOR_PROXY_STRIP_JS',
+    'description' => '_MI_PROTECTOR_PROXY_STRIP_JS_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_strip_cookies',
+    'title'       => '_MI_PROTECTOR_PROXY_STRIP_COOKIES',
+    'description' => '_MI_PROTECTOR_PROXY_STRIP_COOKIES_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
+
+$modversion['config'][] = [
+    'name'        => 'proxy_user_agent',
+    'title'       => '_MI_PROTECTOR_PROXY_USER_AGENT',
+    'description' => '_MI_PROTECTOR_PROXY_USER_AGENT_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'text',
+    'default'     => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0'
+];
+
+// For proxy plugins, options will be populated by oninstall.php and onupdate.php
+$modversion['config'][] = [
+    'name'        => 'proxy_plugins_enabled',
+    'title'       => '_MI_PROTECTOR_PROXY_PLUGINS_ENABLED',
+    'description' => '_MI_PROTECTOR_PROXY_PLUGINS_ENABLED_DESC',
+    'formtype'    => 'select_multi',
+    'valuetype'   => 'array',
+    'default'     => [],
+    'options'     => [] // Will be populated dynamically by oninstall.php and onupdate.php
+];
+
+// Add CORS proxy configuration options
+$modversion['config'][] = [
+    'name' => 'proxy_cors_origin',
+    'title' => '_MI_PROTECTOR_PROXY_CORS_ORIGIN',
+    'description' => '_MI_PROTECTOR_PROXY_CORS_ORIGIN_DESC',
+    'formtype' => 'textbox',
+    'valuetype' => 'text',
+    'default' => '*'
+];
+
+$modversion['config'][] = [
+    'name' => 'proxy_cors_methods',
+    'title' => '_MI_PROTECTOR_PROXY_CORS_METHODS',
+    'description' => '_MI_PROTECTOR_PROXY_CORS_METHODS_DESC',
+    'formtype' => 'textbox',
+    'valuetype' => 'text',
+    'default' => 'GET,POST,PUT,DELETE,OPTIONS'
+];
+
+$modversion['config'][] = [
+    'name' => 'proxy_cors_headers',
+    'title' => '_MI_PROTECTOR_PROXY_CORS_HEADERS',
+    'description' => '_MI_PROTECTOR_PROXY_CORS_HEADERS_DESC',
+    'formtype' => 'textbox',
+    'valuetype' => 'text',
+    'default' => '*'
+];
+
+$modversion['config'][] = [
+    'name' => 'proxy_cors_debug',
+    'title' => '_MI_PROTECTOR_PROXY_CORS_DEBUG',
+    'description' => '_MI_PROTECTOR_PROXY_CORS_DEBUG_DESC',
+    'formtype' => 'yesno',
+    'valuetype' => 'int',
+    'default' => 0
+];
 
 // Notification
+$modversion['config'][] = [
+    'name' => 'notification_enabled',
+    'title' => $constpref . '_NOTIFICATION_ENABLED',
+    'description' => $constpref . '_NOTIFICATION_ENABLED_DESC',
+    'formtype' => 'select',
+    'valuetype' => 'int',
+    'default' => 1,
+    'options' => [
+        $constpref . '_NOTIFICATION_DISABLE' => 0,
+        $constpref . '_NOTIFICATION_ENABLE_INBOX' => 1,
+        $constpref . '_NOTIFICATION_ENABLE_EMAIL' => 2,
+        $constpref . '_NOTIFICATION_ENABLE_BOTH' => 3,
+    ],
+];
 
-$modversion['hasNotification'] = 0;
+$modversion['config'][] = [
+    'name' => 'notification_events',
+    'title' => $constpref . '_NOTIFICATION_EVENTS',
+    'description' => $constpref . '_NOTIFICATION_EVENTS_DESC',
+    'formtype' => 'select_multi',
+    'valuetype' => 'array',
+    'default' => ['security_threat', 'proxy_access'],
+    'options' => [
+        $constpref . '_NOTIFY_SECURITY_THREAT' => 'security_threat',
+        $constpref . '_NOTIFY_PROXY_ACCESS' => 'proxy_access',
+    ],
+];
+// Add notification events
 
-// onInstall, onUpdate, onUninstall
-$modversion['onInstall']   = 'oninstall.php';
-$modversion['onUpdate']    = 'onupdate.php';
-$modversion['onUninstall'] = 'onuninstall.php';
+$modversion['notification'] = [
+    'lookup_file' => 'notification.php',
+    'lookup_func' => 'protector_notify_iteminfo',
+    'category' => [
+        'global' => [
+            'name' => 'global',
+            'title' => _MI_PROTECTOR_NOTIFY_GLOBAL,
+            'description' => _MI_PROTECTOR_NOTIFY_GLOBAL_DESC,
+            'subscribe_from' => ['index.php'],
+        ],
+    ],
+    'event' => [
+        [
+            'name' => 'security_threat',
+            'category' => 'global',
+            'title' => _MI_PROTECTOR_NOTIFY_SECURITY_THREAT,
+            'caption' => _MI_PROTECTOR_NOTIFY_SECURITY_THREAT_CAP,
+            'description' => _MI_PROTECTOR_NOTIFY_SECURITY_THREAT_DESC,
+            'mail_template' => 'security_threat_notify',
+            'mail_subject' => _MI_PROTECTOR_NOTIFY_SECURITY_THREAT_SUBJECT,
+        ],
+        [
+            'name' => 'proxy_access',
+            'category' => 'global',
+            'title' => _MI_PROTECTOR_NOTIFY_PROXY_ACCESS,
+            'caption' => _MI_PROTECTOR_NOTIFY_PROXY_ACCESS_CAP,
+            'description' => _MI_PROTECTOR_NOTIFY_PROXY_ACCESS_DESC,
+            'mail_template' => 'proxy_access_notify',
+            'mail_subject' => _MI_PROTECTOR_NOTIFY_PROXY_ACCESS_SUBJECT,
+        ],
+    ],
+];

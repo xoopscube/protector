@@ -3,10 +3,10 @@
  * Protector module for XCL
  *
  * @package    Protector
- * @version    XCL 2.4.0
+ * @version    XCL 2.5.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 
@@ -17,12 +17,6 @@ class protector_postcommon_post_htmlpurify4guest extends ProtectorFilterAbstract
 	public function execute() {
 
 		global $xoopsUser;
-
-		// HTMLPurifier runs with PHP5 only
-        // @todo @deprecated @gigamaster
-//		if ( version_compare( PHP_VERSION, '5.0.0' ) < 0 ) {
-//			die( 'Turn postcommon_post_htmlpurify4guest.php off because this filter cannot run with PHP4' );
-//		}
 
 		if ( is_object( $xoopsUser ) ) {
 			return true;

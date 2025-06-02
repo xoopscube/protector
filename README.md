@@ -13,11 +13,11 @@
 
 MODULE | Protector
 ------------ | -------------
-Description | Protector is a module to secure XCL Web Application Platform and CMS from various and malicious attacks..
+Description | Protector is a module to secure XCL Web Application Platform and CMS from various and malicious attacks.
 Render Engine | Smarty v2 and XCube Layout
-Version | 3.58.0
+Version | 4.0.0
+Author | Nuno Luciano @gigamaster XCL v2.5.0 
 Author | Nobuhiro Yasutomi @nbuy XCL PHP8  
-Author | Nuno Luciano @gigamaster XCL PHP7 
 Author | Original by Gijoe (https://peak.ne.jp/)
 Copyright | 2005-2023 Authors
 License | GPL
@@ -27,9 +27,9 @@ License | GPL
 
 
 
-          Apache, Nginx, etc. PHP 7.2 - PHP 8.2
-          MySQL 5.6, MariaDB  InnoDB utf8 / utf8mb4
-          XCL version 2.3.+
+          Apache, Nginx, etc. PHP 8.2
+          MySQL 8.0, MariaDB  InnoDB utf8 / utf8mb4
+          XCL version 2.5.+
 
 
 
@@ -40,6 +40,7 @@ License | GPL
 
 - DoS attack and Bad Crawlers (and bots collecting e-mails)
 - SQL Injection
+- CSP 
 - XSS (not all though)
 - System globals pollution
 - Session hi-jacking
@@ -50,5 +51,6 @@ License | GPL
 - Camouflaged Image File Uploading (== IE Content-Type XSS)
 - Executable File Uploading Attack
 - XMLRPC's eval() and SQL Injection Attacks
+- Proxy and plugins
 - SPAMs for comment, trackback etc.
 

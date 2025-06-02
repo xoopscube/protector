@@ -3,24 +3,20 @@
  * Protector module for XCL
  *
  * @package    Protector
- * @version    XCL 2.4.0
+ * @version    XCL 2.5.0
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 
-if ( file_exists( XOOPS_ROOT_PATH . '/class/database/drivers/' . XOOPS_DB_TYPE . '/database.php' ) ) {
-	require_once XOOPS_ROOT_PATH . '/class/database/drivers/' . XOOPS_DB_TYPE . '/database.php';
-} else {
-	require_once XOOPS_ROOT_PATH . '/class/database/' . XOOPS_DB_TYPE . 'database.php';
-}
+// Since we're only using MySQLi in this version, directly include the MySQLi database file
+require_once XOOPS_ROOT_PATH . '/class/database/mysqlidatabase.php';
 
-require_once XOOPS_ROOT_PATH . '/class/database/database.php';
-
-eval( 'class ProtectorMySQLDatabase_base extends Xoops' . ucfirst( XOOPS_DB_TYPE ) . 'DatabaseProxy{}' );
-
-class ProtectorMySQLDatabase extends ProtectorMySQLDatabase_base {
+/**
+ * Protector database class extending MySQLi database proxy for security filtering
+ */
+class ProtectorMySQLDatabase extends XoopsMysqliDatabaseProxy {
 	public $doubtful_requests = [];
 	public $doubtful_needles = [
 		// 'order by' ,

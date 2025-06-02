@@ -1,16 +1,17 @@
 <?php
 /**
- * Protector module for XCL - Administration panel.
+ * Protector module menu for XCL Administration panel.
+ * 
  * @package    Protector
- * @version    XCL 2.4.0
- * @author     Other authors Gigamaster, 2020 XCL PHP7
+ * @version    XCL 2.5.0
+ * @author     Nuno Luciano aka gigamaster
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2024 Authors
+ * @copyright  (c) 2005-2025 Authors
  * @license    GPL v2.0
  */
 
 // Deny direct access
-if ( 'mymenu' === preg_replace( '/[^a-zA-Z0-9_-]/', '', @$_GET['page'] ) ) {
+if ( isset($_GET['page']) && 'mymenu' === preg_replace( '/[^a-zA-Z0-9_-]/', '', $_GET['page'] ) ) {
 	exit;
 }
 
@@ -31,11 +32,11 @@ $langman->read( 'modinfo.php', $mydirname, $mytrustdirname );
 
 include dirname( __DIR__ ) . '/admin_menu.php';
 
-if ( file_exists( XOOPS_TRUST_PATH . '/libs/altsys/myblocksadmin.php' ) ) {
+/* if ( file_exists( XOOPS_TRUST_PATH . '/libs/altsys/myblocksadmin.php' ) ) {
 	// myblocksadmin
 	$title       = defined( '_MD_A_MYMENU_MYBLOCKSADMIN' ) ? _MD_A_MYMENU_MYBLOCKSADMIN : 'blocksadmin';
 	$adminmenu[] = [ 'title' => $title, 'link' => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin' ];
-}
+} */
 
 // preferences
 $config_handler =& xoops_gethandler( 'config' );
@@ -95,3 +96,4 @@ $tpl->assign(
 	]
 );
 $tpl->display( 'db:altsys_inc_menu.html' );
+
